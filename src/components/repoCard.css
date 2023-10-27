@@ -4,3 +4,7 @@
     background-color:rgba(212, 255, 195, 0.603);
     box-shadow: 10px 10px;
 }
+.logo {
+    height: 1rem;
+    padding-right: 0.1rem;
+}
