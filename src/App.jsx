@@ -1,20 +1,15 @@
-const RepoComponent = ({ repo }) => {
-
-  return (
-    <li>{repo.repoName}</li>
-  )
-}
+import { RepoCard } from './components/repoCard'
 
 const App = ({ repos }) => {
 
   return (
     <div>
       <h1>Repos</h1>
-      <ul>
+      <div>
         {repos.map(repo =>
-          <RepoComponent key={repo.id} repo={repo} />
+          <RepoCard key={repo.id} repo={repo} />
         )}
-      </ul>
+      </div>
     </div>
   )
 }
