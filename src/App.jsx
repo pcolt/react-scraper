@@ -5,9 +5,13 @@ import {compareByName, compareByStars } from './helpers/mainHelpers'
 const App = ({ repos }) => {
   const [orderType, setOrderType] = useState('name')
 
-  useEffect(() => {
+  const handleClickOrderType = () => {
+    (orderType === "stars") ? setOrderType("name") : setOrderType("stars")
+  }
+
+  useEffect(() => {   // whenever orderType changes 
     console.log(`Reorder by ${orderType}`)
-    
+
     if (orderType === "name") {
       repos.sort( compareByName )
     } 
@@ -20,7 +24,7 @@ const App = ({ repos }) => {
     <div>
       <h1>Repos about 'climatechange'</h1>
       <div>
-        <button onClick={() => setOrderType((orderType) => (orderType === "stars") ? setOrderType("name") : setOrderType("stars"))}>
+        <button onClick={handleClickOrderType}>
           order by {orderType}
         </button>
       </div>
