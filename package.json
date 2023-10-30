@@ -11,7 +11,7 @@
     "backend:start": "node index.js",
     "backend:dev": "nodemon index.js",
     "backend:test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "flyctl deploy",
+    "deploy": "fly deploy",
     "deploy:full": "npm run build && npm run deploy"
   },
   "dependencies": {

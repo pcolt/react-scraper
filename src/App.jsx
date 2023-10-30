@@ -6,12 +6,8 @@ import axios from 'axios'
 const baseUrl = `/api/repos`
 
 const App = () => {
-  const [orderType, setOrderType] = useState('name')
+  const [orderType, setOrderType] = useState('stars')
   const [repos, setRepos] = useState([])
-
-  const handleClickOrderType = () => {
-    (orderType === "stars") ? setOrderType("name") : setOrderType("stars")
-  }
 
   useEffect(() => {
       axios
@@ -22,14 +18,23 @@ const App = () => {
     
   },[])
 
+  const handleClickOrderByName = () => {
+    setOrderType("name")
+  }
+
+  const handleClickOrderByStars = () => {
+    setOrderType("stars")
+  }
+
   useEffect(() => {   // whenever orderType changes 
     console.log(`Reorder by ${orderType}`)
+    let copyRepos = repos.slice()
 
     if (orderType === "name") {
-      repos.sort( compareByName )
+      setRepos(copyRepos.sort( compareByName ))
     } 
     if (orderType === "stars") {
-      repos.sort( compareByStars )
+      setRepos(copyRepos.sort( compareByStars ))
     }
   }, [orderType])
 
@@ -37,8 +42,11 @@ const App = () => {
     <div>
       <h1>Repos about 'climatechange'</h1>
       <div>
-        <button onClick={handleClickOrderType}>
-          order by {orderType}
+        <button className={(orderType === 'name')? 'button-selected' : ''} onClick={handleClickOrderByName}>
+          order by Name
+        </button>
+        <button className={(orderType === 'stars')? 'button-selected' : ''} onClick={handleClickOrderByStars}>
+          order by Stars
         </button>
       </div>
       <div>
