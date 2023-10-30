@@ -1,10 +1,34 @@
-## React app showing results from backend project playwright-scraper
+## React-Express app showing results from backend project playwright-scraper
 
-The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/) and [2](https://fullstackopen.com/en/part2/)
+The app show a list of repositories about **climatechange** topic and it is up on-line at https://react-node-scraper.fly.dev/.   
+   
+The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.
+   
+The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/).
 
 ### Usage
 
-`npm run dev`
+Start frontend in dev:   
+`npm run vite:dev`
+
+Build frontend:   
+`npm run build`
+
+Start backend in development mode (auto-starts on change):   
+`npm run backend:dev`
+
+Build frontend React via Vite:   
+`npm run build`
+
+Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
+`npm run build:full`
+
+Only deploy (does not re-build frontend) on Fly.io:   
+`npm run deploy`
+
+## Install
+
+Clone the repository in your local folder and run `npm install`
 
 ## React + Vite
 
