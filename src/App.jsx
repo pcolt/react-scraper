@@ -1,13 +1,26 @@
 import { useEffect, useState } from 'react'
 import { RepoCard } from './components/repoCard'
 import {compareByName, compareByStars } from './helpers/mainHelpers'
+import axios from 'axios'
 
-const App = ({ repos }) => {
+const baseUrl = `/api/repos`
+
+const App = () => {
   const [orderType, setOrderType] = useState('name')
+  const [repos, setRepos] = useState([])
 
   const handleClickOrderType = () => {
     (orderType === "stars") ? setOrderType("name") : setOrderType("stars")
   }
+
+  useEffect(() => {
+      axios
+        .get(baseUrl).then(response => {
+          console.log('repos retrieved')
+          setRepos(response.data)
+        })
+    
+  },[])
 
   useEffect(() => {   // whenever orderType changes 
     console.log(`Reorder by ${orderType}`)
