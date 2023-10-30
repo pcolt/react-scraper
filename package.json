@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "vite:dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "vite:preview": "vite preview",
     "backend:start": "node index.js",
     "backend:dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "fly deploy",
+    "backend:test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "flyctl deploy",
     "deploy:full": "npm run build && npm run deploy"
   },
   "dependencies": {

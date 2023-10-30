@@ -6,7 +6,7 @@ export const RepoCard = ({ repo }) => {
       <div className="repoCard">
         <h2>{repo.repoName}</h2>
         <p>{repo.description}</p>
-        <a href="{repo.url}"><img className="logo" src={githublogo} />GitHub</a>
+        <a href={repo.url}><img className="logo" src={githublogo} />GitHub</a>
         <p>Stars &#11088; {repo.stars}</p>
       </div>
     )
