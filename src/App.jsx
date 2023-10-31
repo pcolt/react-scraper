@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Repos about 'climatechange'</h1>
+      <h1>Repos</h1>
       <div>
         <button className={(orderType === 'name')? 'button-selected' : ''} onClick={handleClickOrderByName}>
           order by Name
