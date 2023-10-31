@@ -1,8 +1,11 @@
 // import http from 'http'
+import 'dotenv/config'
 import express from 'express'
 import { repos } from './src/assets/repos.js'
 import cors from 'cors'
-import 'dotenv/config'
+import { mongoose } from 'mongoose';
+import RepoMongooseModel from './models/repo_model.js';
+
 
 const app = express()
 app.use(express.static('dist'))     // when http GET request to main root or index.html it returns the static files in /dist build with vite
@@ -21,8 +24,11 @@ app.use(requestLogger)
 //   response.send('<h1>Hello World!!!!!</h1>')
 // })
 
-app.get('/api/repos', (request, response) => {        // backend root to retrieve notes
-  response.json(repos)
+app.get('/api/repos', (request, response) => {        // backend root to retrieve notes from mongoDB
+  RepoMongooseModel.find({}).then(repos => {
+    console.log('Repos retrieved')
+    response.json(repos)
+  })
 })
 
 const unknownEndpoint = (request, response) => {      // all other not defined roots give error

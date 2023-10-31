@@ -28,7 +28,11 @@ Only deploy (does not re-build frontend) on Fly.io:
 
 ## Install
 
-Clone the repository in your local folder and run `npm install`
+- Clone the repository in your local folder and run `npm install`
+- In the root folder create `.env` file with following keys   
+`MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`   
+- Set previous variables as Fly.io secrets like this:   
+`fly secrets set MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
 
 ## React + Vite
 
