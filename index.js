@@ -1,10 +1,10 @@
 // import http from 'http'
 import 'dotenv/config'
 import express from 'express'
-import { repos } from './src/assets/repos.js'
+// import { repos } from './src/assets/repos.js'
 import cors from 'cors'
-import { mongoose } from 'mongoose';
-import RepoMongooseModel from './models/repo_model.js';
+// import { mongoose } from 'mongoose'
+import RepoMongooseModel from './models/repo_model.js'
 
 
 const app = express()

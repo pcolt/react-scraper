@@ -17,6 +17,9 @@ Build frontend:
 Start backend in development mode (auto-starts on change):   
 `npm run backend:dev`
 
+Run eslint over backend and frontend JS files:
+`npm run lint`
+
 Build frontend React via Vite:   
 `npm run build`
 
@@ -25,6 +28,9 @@ Build frontend and deploy whole app on Fly.io and watch at https://react-node-sc
 
 Only deploy (does not re-build frontend) on Fly.io:   
 `npm run deploy`
+
+Scale down Fly.io deployment to one machine:
+`fly scale count 1`
 
 ## Install
 

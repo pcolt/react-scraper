@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, React } from 'react'
 import { RepoCard } from './components/repoCard'
 import {compareByName, compareByStars } from './helpers/mainHelpers'
 import axios from 'axios'
@@ -43,10 +43,10 @@ const App = () => {
       <h1>Repos</h1>
       <div>
         <button className={(orderType === 'name')? 'button-selected' : ''} onClick={handleClickOrderByName}>
-          order by Name
+          {(orderType === 'name') ? 'ordered' : 'order'} by Name
         </button>
         <button className={(orderType === 'stars')? 'button-selected' : ''} onClick={handleClickOrderByStars}>
-          order by Stars
+        {(orderType === 'stars') ? 'ordered' : 'order'} by Stars
         </button>
       </div>
       <div>
