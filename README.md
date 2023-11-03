@@ -35,9 +35,12 @@ Scale down Fly.io deployment to one machine:
 ## Install
 
 - Clone the repository in your local folder and run `npm install`
-- In the root folder create `.env` file with following keys   
-`MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`   
-- Set previous variables as Fly.io secrets like this:   
+- In the root folder create `.env` file with following keys:   
+```
+MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'
+PORT = 3001
+```
+- Set MONGO_URL as Fly.io secrets like this:   
 `fly secrets set MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
 
 ## React + Vite

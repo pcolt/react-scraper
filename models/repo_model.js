@@ -1,17 +1,6 @@
 import mongoose from 'mongoose'
-
-const mongo_url = process.env.MONGO_URL
-// `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority`
-
-
-mongoose.set('strictQuery',false)
-mongoose.connect(mongo_url)
-  .then(() => {    
-    console.log('connected to MongoDB')  
-  })  
-  .catch((error) => {    
-    console.log('error connecting to MongoDB:', error.message)  
-  })
+import logger from '../utils/logger.js'
+import config from '../utils/config.js'
 
 const repoMongooseSchema = new mongoose.Schema({
   id: Number,
