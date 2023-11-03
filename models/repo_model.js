@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const mongo_url = process.env.MONGO_URL
-  // `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority`
+// `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority`
 
 
 mongoose.set('strictQuery',false)
