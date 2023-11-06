@@ -5,7 +5,7 @@ import config from '../utils/config.js'
 const repoMongooseSchema = new mongoose.Schema({
   id: Number,
   user: String,
-  repo: String,
+  repoName: String,
   url: String,
   stars: Number,
   description: String,
@@ -21,6 +21,7 @@ repoMongooseSchema.set('toJSON', {
   }
 })
 
-const RepoMongooseModel = mongoose.model('Repo', repoMongooseSchema)
+const RepoCrawlerModel = mongoose.model('Crawler', repoMongooseSchema)
+const RepoClimatechangeModel = mongoose.model('Climatechange', repoMongooseSchema)
 
-export default RepoMongooseModel
+export { RepoCrawlerModel, RepoClimatechangeModel }
