@@ -48,10 +48,10 @@ const App = () => {
     console.log(`Display ${repoSelected}`)
 
     axios
-    .get(`${baseUrl}/${repoSelected}`).then(response => {
-      console.log('repos crawler retrieved')
-      setRepos(response.data)
-    }) 
+      .get(`${baseUrl}/${repoSelected}`).then(response => {
+        console.log('repos crawler retrieved')
+        setRepos(response.data)
+      }) 
 
   }, [repoSelected])
 

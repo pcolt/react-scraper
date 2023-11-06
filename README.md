@@ -20,6 +20,9 @@ Start backend in development mode (auto-starts on change):
 Run eslint over backend and frontend JS files:
 `npm run lint`
 
+Run tests over backend files:
+`npm run backend:test`
+
 Build frontend React via Vite:   
 `npm run build`
 

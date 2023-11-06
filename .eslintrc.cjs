@@ -2,7 +2,8 @@ module.exports = {
 	'env': {
 		'browser': true,
 		'node': true,
-		'es2021': true
+		'es2021': true,
+		'jest': true
 	},
 	'extends': [
 		'eslint:recommended',
@@ -45,7 +46,10 @@ module.exports = {
 			'warn',
 			'never'
 		],
-		"react/prop-types": "off"
+		"react/prop-types": "off",
+		"no-unused-vars": [
+			'warn'
+		]
 	},
 	'settings': {
 		'react': {

@@ -1,4 +1,5 @@
-import logger from './logger.js'
+// import logger from './logger.js'
+const logger = require('./logger.js')
 
 const requestLogger = (request, response, next) => {    // middleware to print info about any request
   logger.info('Method:', request.method)
@@ -12,4 +13,5 @@ const unknownEndpoint = (request, response) => {      // all other not defined r
   response.status(404).send({ error: 'unknown endpoint' })
 }
 
-export default { requestLogger, unknownEndpoint }
+// export default { requestLogger, unknownEndpoint }
+module.exports = { requestLogger, unknownEndpoint }
