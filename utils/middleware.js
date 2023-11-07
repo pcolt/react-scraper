@@ -13,5 +13,12 @@ const unknownEndpoint = (request, response) => {      // all other not defined r
   response.status(404).send({ error: 'unknown endpoint' })
 }
 
+const errorHandler = (error, request, response, next) => {
+  // if (error.name ===  'JsonWebTokenError') {    
+  //   return response.status(401).json({ error: error.message })
+  // }
+  next(error)
+}
+
 // export default { requestLogger, unknownEndpoint }
-module.exports = { requestLogger, unknownEndpoint }
+module.exports = { requestLogger, unknownEndpoint, errorHandler }

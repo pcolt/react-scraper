@@ -37,5 +37,7 @@ app.use('/api/repos', reposRouter)
 
 app.use(middleware.unknownEndpoint)
 
+app.use(middleware.errorHandler)
+
 // export default app
 module.exports = app

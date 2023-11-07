@@ -19,8 +19,8 @@ describe('interface tests on /api/repos endpoint', () => {
     await RepoClimatechangeModel.insertMany(mockClimatechangeRepos)
     await RepoCrawlerModel.deleteMany()
     await RepoCrawlerModel.insertMany(mockCrawlerRepos)
-    console.log("Data in database re-initialized");
-  });
+    console.log('Data in database re-initialized')
+  })
   test('test GET api/repos/climatechange', async () => {
     await api
       .get('/api/repos/climatechange')
