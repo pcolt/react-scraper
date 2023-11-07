@@ -6,21 +6,40 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
+const { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model')
+const { mockClimatechangeRepos, mockCrawlerRepos } = require('./tests_helper')
+
 
 const api = supertest(app)
 
 describe('interface tests on /api/repos endpoint', () => {
-  test('api/repos/climatechange returns 200 and json', async () => {
+  // Applies only to tests in this describe block
+  beforeEach(async () => {
+    await RepoClimatechangeModel.deleteMany()
+    await RepoClimatechangeModel.insertMany(mockClimatechangeRepos)
+    await RepoCrawlerModel.deleteMany()
+    await RepoCrawlerModel.insertMany(mockCrawlerRepos)
+    console.log("Data in database re-initialized");
+  });
+  test('test GET api/repos/climatechange', async () => {
     await api
       .get('/api/repos/climatechange')
       .expect(200)
       .expect('Content-Type', /application\/json/)
+      .then(response => {
+        // console.log('/api/repos/climatechange response.body', response.body)
+        expect(response.body).toHaveLength(mockClimatechangeRepos.length)
+      })
   })
-  test('api/repos/crawler returns 200 and json', async () => {  
+  test('test GET api/repos/crawler', async () => {  
     await api
       .get('/api/repos/crawler')
       .expect(200)
       .expect('Content-Type', /application\/json/)
+      .then(response => {
+        // console.log('api/repos/crawler response.body', response.body)
+        expect(response.body).toHaveLength(mockCrawlerRepos.length)
+      })
   })
 })
 
