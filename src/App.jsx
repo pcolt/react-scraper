@@ -6,18 +6,18 @@ import axios from 'axios'
 const baseUrl = '/api/repos'
 
 const App = () => {
-  const [orderType, setOrderType] = useState('stars')
+  const [orderType, setOrderType] = useState(null)
   const [repos, setRepos] = useState([])
-  const [repoSelected, setRepoSelected] = useState('climatechange')
+  const [repoSelected, setRepoSelected] = useState('')
 
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}/${repoSelected}`).then(response => {
-        console.log('repos retrieved')
-        setRepos(response.data)
-      })
+  // useEffect(() => {
+  //   axios
+  //     .get(`${baseUrl}/${repoSelected}`).then(response => {
+  //       console.log('repos retrieved')
+  //       setRepos(response.data)
+  //     })
     
-  },[])
+  // },[])
 
   const handleClickOrderByName = () => {
     setOrderType('name')
@@ -33,6 +33,8 @@ const App = () => {
   }
 
   useEffect(() => {   // whenever orderType changes 
+    if (orderType === null) { return }
+
     console.log(`Reorder by ${orderType}`)
     let copyRepos = repos.slice()
 
@@ -44,8 +46,11 @@ const App = () => {
     }
   }, [orderType])
 
-  useEffect(() => {   // whenever orderType changes 
+  useEffect(() => {   // whenever repoSelected changes 
+    if (repoSelected === '') { return }
+
     console.log(`Display ${repoSelected}`)
+    setOrderType(null)
 
     axios
       .get(`${baseUrl}/${repoSelected}`).then(response => {
@@ -61,8 +66,9 @@ const App = () => {
       <div>
         <h3>Select a topic to search:</h3>
         <select value={repoSelected} onChange={handleSelectRepo}>
-          <option value="climatechange">Climate Change</option>
-          <option value="crawler">Crawler</option>
+          <option value='' disabled={true}>Select an option</option>
+          <option value='climatechange'>Climate Change</option>
+          <option value='crawler'>Crawler</option>
         </select>
       </div>
       <div>
