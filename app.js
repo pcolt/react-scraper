@@ -1,16 +1,9 @@
-// import config from './utils/config.js'
-// import express from 'express'
-// import cors from 'cors'
-// // import RepoMongooseModel from './models/repo_model.js'
-// import logger from './utils/logger.js'
-// import { reposRouter } from './controllers/repo_controller.js'
-// import middleware from './utils/middleware.js'
-// import mongoose from 'mongoose'
 const config = require('./utils/config')
 const express = require('express')
 const cors = require('cors')
 const logger = require('./utils/logger')
 const reposRouter = require('./controllers/repo_controller')
+const usersRouter = require('./controllers/users_controller')
 const middleware = require('./utils/middleware')
 const mongoose = require('mongoose')
 
@@ -30,10 +23,12 @@ mongoose.connect(config.MONGO_URL)
 const app = express()
 app.use(express.static('dist'))     // when http GET request to main root or index.html it returns the static files in /dist build with vite
 app.use(cors())                     // allow cors
+app.use(express.json())             // activate the json-parser and implement an initial handler for dealing with the HTTP POST requests
 
 app.use(middleware.requestLogger)
 
 app.use('/api/repos', reposRouter)
+app.use('/api/users', usersRouter)
 
 app.use(middleware.unknownEndpoint)
 

@@ -1,2 +1,0 @@
-// returns al repos as array of objects (JSON string)
-GET http://localhost:3001/api/repos/

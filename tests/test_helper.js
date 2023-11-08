@@ -1,3 +1,5 @@
+const UserModel = require('../models/user_model')
+
 const mockClimatechangeRepos = [
   {
     id: 0,
@@ -84,4 +86,9 @@ const mockCrawlerRepos = [
   },
 ]
 
-module.exports = { mockClimatechangeRepos, mockCrawlerRepos }
+const usersInDb = async () => {
+  const users = await UserModel.find({})
+  return users.map(user => user.toJSON())
+}
+
+module.exports = { mockClimatechangeRepos, mockCrawlerRepos, usersInDb }
