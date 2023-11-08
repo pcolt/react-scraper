@@ -1,4 +1,3 @@
-import React from 'react'
 import './repoCard.css'
 import githublogo from '../assets/github-mark.svg'
 export const RepoCard = ({ repo }) => {

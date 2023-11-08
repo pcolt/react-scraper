@@ -1,4 +1,4 @@
-import { useEffect, useState, React } from 'react'
+import { useEffect, useState } from 'react'
 import { RepoCard } from './components/repoCard'
 import {compareByName, compareByStars } from './helpers/mainHelpers'
 import axios from 'axios'
@@ -49,7 +49,7 @@ const App = () => {
 
     axios
       .get(`${baseUrl}/${repoSelected}`).then(response => {
-        console.log('repos crawler retrieved')
+        console.log(`repos ${repoSelected} retrieved`)
         setRepos(response.data)
       }) 
 

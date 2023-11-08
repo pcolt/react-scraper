@@ -3,12 +3,19 @@ module.exports = {
 		'browser': true,
 		'node': true,
 		'es2021': true,
-		'jest': true
+		'jest/globals': true
 	},
 	'extends': [
 		'eslint:recommended',
-		'plugin:react/recommended'
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
 	],
+	'settings': {
+		'react': {
+			'version': 'detect'
+		}
+	},
 	'overrides': [
 		{
 			'env': {
@@ -27,7 +34,8 @@ module.exports = {
 		'sourceType': 'module'
 	},
 	'plugins': [
-		'react'
+		'react',
+		'jest'
 	],
 	'rules': {
 		'indent': [
@@ -46,14 +54,10 @@ module.exports = {
 			'warn',
 			'never'
 		],
+		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"no-unused-vars": [
 			'warn'
 		]
 	},
-	'settings': {
-		'react': {
-			'version': 'detect'
-		}
-	}
 }
