@@ -46,7 +46,7 @@ describe('interface tests on /api/repos route', () => {
   })
 })
 
-describe('Interface tests on api/users route. Collection has initially one user in db.', () => {
+describe('Interface tests on api/users and api/login routes. Collection has initially one user in db.', () => {
   beforeEach(async () => {
     await UserModel.deleteMany({})                                    // delete all users
 
@@ -97,6 +97,34 @@ describe('Interface tests on api/users route. Collection has initially one user 
 
     const usersAtEnd = await helper.usersInDb()                         // check no user was added
     expect(usersAtEnd).toEqual(usersAtStart)
+  })
+
+  test('Test login succesfull', async () => {
+    const newLogin = {                                                 // try login
+      "username": "root",
+      "password": "sekret"
+    }
+
+    const result = await api
+      .post('/api/login')
+      .send(newLogin)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+    expect(result.body.token).toBeDefined
+  })
+
+  test('Test login failed', async () => {
+    const newLogin = {
+      "username": "root",
+      "password": "sekretssssss"
+    }
+
+    const result = await api
+      .post('/api/login')
+      .send(newLogin)
+      .expect(401)
+      .expect('Content-Type', /application\/json/)
+    expect(result.body.error).toBeDefined
   })
 })
 
