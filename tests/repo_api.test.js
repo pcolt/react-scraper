@@ -4,6 +4,7 @@
 // import {jest} from '@jest/globals';
 // jest.useFakeTimers();
 const mongoose = require('mongoose')
+const {describe, expect, test} = require('@jest/globals')   // explicit import actaully required only for typescript
 const supertest = require('supertest')
 const app = require('../app')
 const { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model')
@@ -75,6 +76,27 @@ describe('Interface tests on api/users route. Collection has initially one user 
 
     const usernames = usersAtEnd.map(u => u.username)                 // check usernames contain the new inserted user
     expect(usernames).toContain(newUser.username)
+  })
+
+  test('Creation fails if username is duplicate already in db', async () => {
+    const usersAtStart = await helper.usersInDb()
+
+    const newUser = {                                                 // try to add a new user with username already in the db
+      username: 'root',
+      name: 'Superuser',
+      password: 'salainen',
+    }
+
+    const result = await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)                                                    // check http error code
+      .expect('Content-Type', /application\/json/)
+
+    expect(result.body.error).toContain('duplicate key error collection') // check response body
+
+    const usersAtEnd = await helper.usersInDb()                         // check no user was added
+    expect(usersAtEnd).toEqual(usersAtStart)
   })
 })
 

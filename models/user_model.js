@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 // const config = require('../utils/config')
 
 const userSchema = new mongoose.Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   name: String,
   passwordHash: String
 })

@@ -6,14 +6,14 @@ const reposRouter = require('express').Router()
 const  { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model.js')
 const logger = require('../utils/logger')
 
-reposRouter.get('/crawler', (request, response) => {        // backend root to retrieve notes from mongoDB
+reposRouter.get('/crawler', (request, response) => {              // backend root to retrieve crawler repos from mongoDB
   RepoCrawlerModel.find({}).then(repos => {
     logger.info('Repos retrieved')
     response.json(repos)
   })
 })
 
-reposRouter.get('/climatechange', (request, response) => {        // backend root to retrieve notes from mongoDB
+reposRouter.get('/climatechange', (request, response) => {        // backend root to retrieve climatechange repos from mongoDB
   RepoClimatechangeModel.find({}).then(repos => {
     logger.info('Repos retrieved')
     response.json(repos)
