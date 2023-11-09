@@ -22,7 +22,11 @@ loginRouter.post('/', async (request, response) => {
     id: user._id,
   }
 
-  const token = jwt.sign(userForToken, process.env.SECRET)    // generate token if login succesfull
+  const token = jwt.sign(           // generate token if login succesfull with expire time 1h
+    userForToken, 
+    process.env.SECRET,
+    { expiresIn: 60*60 }
+  )
 
   /**
    * TODO ADD THE TOKEN TO THE DATABASE (SERVER SIDE SESSION)
