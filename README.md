@@ -42,9 +42,11 @@ Scale down Fly.io deployment to one machine:
 ```
 MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'
 PORT = 3001
+SECRET = 'JSONWEBTOKEN_SIGNATURE'
 ```
 - Set MONGO_URL as Fly.io secrets like this:   
 `fly secrets set MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
+`fly secrets set SECRET = 'JSONWEBTOKEN_SIGNATURE'`
 
 ## React + Vite
 

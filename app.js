@@ -4,6 +4,8 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const reposRouter = require('./controllers/repo_controller')
 const usersRouter = require('./controllers/users_controller')
+const loginRouter = require('./controllers/login_controller')
+const jobsRouter = require('./controllers/jobs_controller')
 const middleware = require('./utils/middleware')
 const mongoose = require('mongoose')
 
@@ -29,6 +31,8 @@ app.use(middleware.requestLogger)
 
 app.use('/api/repos', reposRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+app.use('/api/jobs', jobsRouter)
 
 app.use(middleware.unknownEndpoint)
 
