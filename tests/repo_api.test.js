@@ -11,7 +11,7 @@ const { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_mod
 const helper = require('./test_helper')
 const bcrypt = require('bcrypt')
 const UserModel = require('../models/user_model')
-
+const jwt = require('jsonwebtoken')
 
 const api = supertest(app)
 
@@ -99,7 +99,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
     expect(usersAtEnd).toEqual(usersAtStart)
   })
 
-  test('Test login succesfull', async () => {
+  test('Test succesfully "root" user login and token verification', async () => {
     const newLogin = {                                                 // try login
       'username': 'root',
       'password': 'sekret'
@@ -111,6 +111,10 @@ describe('Interface tests on api/users and api/login routes. Collection has init
       .expect(200)
       .expect('Content-Type', /application\/json/)
     expect(result.body.token).toBeDefined
+
+    const decodedToken = jwt.verify(result.body.token, process.env.SECRET)
+    expect(decodedToken.username).toBe('root')
+    expect(decodedToken.id).toBeDefined
   })
 
   test('Test login failed', async () => {
