@@ -101,8 +101,8 @@ describe('Interface tests on api/users and api/login routes. Collection has init
 
   test('Test login succesfull', async () => {
     const newLogin = {                                                 // try login
-      "username": "root",
-      "password": "sekret"
+      'username': 'root',
+      'password': 'sekret'
     }
 
     const result = await api
@@ -115,8 +115,8 @@ describe('Interface tests on api/users and api/login routes. Collection has init
 
   test('Test login failed', async () => {
     const newLogin = {
-      "username": "root",
-      "password": "sekretssssss"
+      'username': 'root',
+      'password': 'sekretssssss'
     }
 
     const result = await api

@@ -8,16 +8,8 @@ const baseUrl = '/api/repos'
 const App = () => {
   const [orderType, setOrderType] = useState(null)
   const [repos, setRepos] = useState([])
+  const [sortedRepos, setSortedRepos] = useState([]) // new state variable
   const [repoSelected, setRepoSelected] = useState('')
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${baseUrl}/${repoSelected}`).then(response => {
-  //       console.log('repos retrieved')
-  //       setRepos(response.data)
-  //     })
-    
-  // },[])
 
   const handleClickOrderByName = () => {
     setOrderType('name')
@@ -39,18 +31,19 @@ const App = () => {
     let copyRepos = repos.slice()
 
     if (orderType === 'name') {
-      setRepos(copyRepos.sort( compareByName ))
+      setSortedRepos(copyRepos.sort(compareByName))
     } 
     if (orderType === 'stars') {
-      setRepos(copyRepos.sort( compareByStars ))
+      setSortedRepos(copyRepos.sort(compareByStars))
     }
-  }, [orderType])
+  }, [orderType, repos])
 
   useEffect(() => {   // whenever repoSelected changes 
     if (repoSelected === '') { return }
 
     console.log(`Display ${repoSelected}`)
     setOrderType(null)
+    setSortedRepos([])
 
     axios
       .get(`${baseUrl}/${repoSelected}`).then(response => {
@@ -81,7 +74,7 @@ const App = () => {
         </button>
       </div>
       <div>
-        {repos.map(repo =>
+        {(sortedRepos.length > 0 ? sortedRepos : repos).map(repo =>
           <RepoCard key={repo.id} repo={repo} />
         )}
       </div>
