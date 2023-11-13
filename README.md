@@ -35,6 +35,10 @@ Only deploy (does not re-build frontend) on Fly.io:
 Scale down Fly.io deployment to one machine:
 `fly scale count 1`
 
+Watch logs of production machine on Fly.io:
+`fly apps list`
+`fly logs NAME_OF_THE_APP`
+
 ## Install
 
 - Clone the repository in your local folder and run `npm install`
@@ -45,9 +49,10 @@ PORT = 3001
 SECRET = 'JSONWEBTOKEN_SIGNATURE'
 REDIS_URL = 'redis://default:MONGODB_DEFAULTUSER_PASSWORD@redis-12236.c300.eu-central-1-1.ec2.cloud.redislabs.com:12236'
 ```
-- Set MONGO_URL as Fly.io secrets like this:   
-`fly secrets set MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
-`fly secrets set SECRET = 'JSONWEBTOKEN_SIGNATURE'`
+- Set sensitive data as Fly.io secrets with commands:   
+`fly secrets set MONGO_URL='mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
+`fly secrets set SECRET='JSONWEBTOKEN_SIGNATURE'`
+`fly secrets set REDIS_URL='redis://default:MONGODB_DEFAULTUSER_PASSWORD@redis-12236.c300.eu-central-1-1.ec2.cloud.redislabs.com:12236'`
 
 ## React + Vite
 

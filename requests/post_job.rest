@@ -1,6 +1,6 @@
 // post new crawling job
-POST http://localhost:3001/api/jobs/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY1NGNhNWUyMmIzMWZiMzM5ZTExYWUzNCIsImlhdCI6MTY5OTUyNjY1MX0.vn8qQZI_HT3YD_MpbU0xvzUH9dkrS71v1W3Bvecb7Dk
+POST {{baseUrl}}api/jobs/ HTTP/1.1
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
