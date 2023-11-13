@@ -43,6 +43,7 @@ Scale down Fly.io deployment to one machine:
 MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'
 PORT = 3001
 SECRET = 'JSONWEBTOKEN_SIGNATURE'
+REDIS_URL = 'redis://default:MONGODB_DEFAULTUSER_PASSWORD@redis-12236.c300.eu-central-1-1.ec2.cloud.redislabs.com:12236'
 ```
 - Set MONGO_URL as Fly.io secrets like this:   
 `fly secrets set MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'`
