@@ -4,7 +4,7 @@ The app show a list of repositories about **climatechange** topic and it is up o
    
 The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.
 
-### Usage
+## Usage
 
 Start frontend in dev:   
 `npm run vite:dev`
@@ -36,6 +36,12 @@ Scale down Fly.io deployment to one machine:
 Watch logs of production machine on Fly.io:
 `fly apps list`
 `fly logs NAME_OF_THE_APP`
+
+##### VSCode REST Client
+
+HTTP requests to the express endpoints are in `requests` folder (Installation of VSCode plugin REST Client is required).
+To change environment variables from 'local' to 'production' press:
+`ctrl+alt+e`
 
 ## Install
 
