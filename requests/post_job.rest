@@ -4,5 +4,5 @@ Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
-  "topic": "climatechange"
+  "topic": "crawler"
 }
