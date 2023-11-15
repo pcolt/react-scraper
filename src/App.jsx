@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
-import { RepoCard } from './components/repoCard'
-import {compareByName, compareByStars } from './helpers/mainHelpers'
 import axios from 'axios'
+import { RepoCard } from './components/repoCard'
+import { LoginForm } from './components/loginForm'
+import { Notification } from './components/notification'
+import {compareByName, compareByStars } from './services/helpers'
+import loginService from './services/login'
 
 const baseUrl = '/api/repos'
 
@@ -10,6 +13,9 @@ const App = () => {
   const [repos, setRepos] = useState([])
   const [sortedRepos, setSortedRepos] = useState([]) // new state variable
   const [repoSelected, setRepoSelected] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [user, setUser] = useState(null)
+
 
   const handleClickOrderByName = () => {
     setOrderType('name')
@@ -78,6 +84,9 @@ const App = () => {
           <RepoCard key={repo.id} repo={repo} />
         )}
       </div>
+
+      <Notification message={errorMessage} /> 
+      {user === null ? <LoginForm user={user} setUser={setUser} setErrorMessage={setErrorMessage}/> : <div>user logged</div>}
     </div>
   )
 }
