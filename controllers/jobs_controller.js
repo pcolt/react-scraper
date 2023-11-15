@@ -25,7 +25,7 @@ jobsRouter.post('/', async (request, response, next) => {
     //   name: 'Using Redis Pub/Sub with Node.js',
     //   blog: 'Logrocket Blog',
     // }
-    await redisClient.publish('runScraper', JSON.stringify(request.body))
+    await redisClient.publish(`runScraper_${process.env.NODE_ENV}`, JSON.stringify(request.body))
 
     // await redisClient.set('bike:1', 'Process 134');
     // const value = await redisClient.get('bike:1');

@@ -34,8 +34,7 @@ Scale down Fly.io deployment to one machine:
 `fly scale count 1`
 
 Watch logs of production machine on Fly.io:
-`fly apps list`
-`fly logs NAME_OF_THE_APP`
+`fly logs`
 
 ##### VSCode REST Client
 
