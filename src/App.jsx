@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import { RepoCard } from './components/repoCard'
-import {compareByName, compareByStars } from './helpers/mainHelpers'
 import axios from 'axios'
+import { RepoCard } from './components/repoCard'
+import { LoginForm } from './components/loginForm'
+import {compareByName, compareByStars, topics } from './services/helpers'
+import { UpdateRepos } from './components/updateRepos'
 
 const baseUrl = '/api/repos'
 
@@ -10,6 +12,10 @@ const App = () => {
   const [repos, setRepos] = useState([])
   const [sortedRepos, setSortedRepos] = useState([]) // new state variable
   const [repoSelected, setRepoSelected] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [user, setUser] = useState(null)
+  const [token, setToken] = useState(null)
+
 
   const handleClickOrderByName = () => {
     setOrderType('name')
@@ -60,8 +66,9 @@ const App = () => {
         <h3>Select a topic to search:</h3>
         <select value={repoSelected} onChange={handleSelectRepo}>
           <option value='' disabled={true}>Select an option</option>
-          <option value='climatechange'>Climate Change</option>
-          <option value='crawler'>Crawler</option>
+          {topics.map(topic => (
+            <option key={topic.value} value={topic.value}>{topic.display}</option>
+          ))}
         </select>
       </div>
       <div>
@@ -77,7 +84,14 @@ const App = () => {
         {(sortedRepos.length > 0 ? sortedRepos : repos).map(repo =>
           <RepoCard key={repo.id} repo={repo} />
         )}
-      </div>
+      </div> 
+
+      {
+        user === null ? 
+        <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage} setToken={setToken}/> : 
+        <UpdateRepos user={user} token={token} ></UpdateRepos>
+      }
+      
     </div>
   )
 }
