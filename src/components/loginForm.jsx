@@ -6,7 +6,8 @@ import './loginForm.css'
 export const LoginForm = ({
   setUser,
   errorMessage,
-  setErrorMessage
+  setErrorMessage,
+  setToken
 }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('') 
@@ -21,7 +22,8 @@ export const LoginForm = ({
       const user = await loginService.login({        
         username, password,      
       })      
-      setUser(user)      
+      setUser(user)
+      setToken(user.token)      
       setUsername('')      
       setPassword('')
     } catch (exception) {      
@@ -50,7 +52,7 @@ export const LoginForm = ({
           onChange={({ target }) => setPassword(target.value)}
         />
 
-        <button type="submit">login</button>
+        <button type="submit">Login</button>
 
         <Notification message={errorMessage} />
 

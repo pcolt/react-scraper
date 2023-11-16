@@ -18,4 +18,15 @@ function compareByStars( a, b ) {
   return 0
 }
 
-export { compareByName, compareByStars }
+const topics = [ 
+  {
+    display: 'Crawler',
+    value: 'crawler'
+   },
+   {
+    display: 'Climate Change',
+    value: 'climatechange'
+  }
+ ]
+
+export { compareByName, compareByStars, topics }

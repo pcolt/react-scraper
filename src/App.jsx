@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { RepoCard } from './components/repoCard'
 import { LoginForm } from './components/loginForm'
-import {compareByName, compareByStars } from './services/helpers'
+import {compareByName, compareByStars, topics } from './services/helpers'
+import { UpdateRepos } from './components/updateRepos'
 
 const baseUrl = '/api/repos'
 
@@ -13,6 +14,7 @@ const App = () => {
   const [repoSelected, setRepoSelected] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
   const [user, setUser] = useState(null)
+  const [token, setToken] = useState(null)
 
 
   const handleClickOrderByName = () => {
@@ -64,8 +66,9 @@ const App = () => {
         <h3>Select a topic to search:</h3>
         <select value={repoSelected} onChange={handleSelectRepo}>
           <option value='' disabled={true}>Select an option</option>
-          <option value='climatechange'>Climate Change</option>
-          <option value='crawler'>Crawler</option>
+          {topics.map(topic => (
+            <option key={topic.value} value={topic.value}>{topic.display}</option>
+          ))}
         </select>
       </div>
       <div>
@@ -85,8 +88,8 @@ const App = () => {
 
       {
         user === null ? 
-        <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/> : 
-        <p>{user.username} logged in</p>
+        <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage} setToken={setToken}/> : 
+        <UpdateRepos user={user} token={token} ></UpdateRepos>
       }
       
     </div>
