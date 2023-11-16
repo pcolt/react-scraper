@@ -9,14 +9,20 @@ const getTokenFrom = request => {
   return null
 }
 
-const verifyToken = request => {
+const verifyToken = (token) => {
+  return jwt.verify(token, process.env.SECRET)
+
+}
+
+const verifyRequestToken = request => {
   const token = getTokenFrom(request)
   // try {
-  return jwt.verify(token, process.env.SECRET)
+  return verifyToken(token)
+  // return jwt.verify(token, process.env.SECRET)
   // } catch(e) {
   //   logger.info('jwt.verify():', e.message)
   //   return false
   // }
 }
 
-module.exports = verifyToken
+module.exports = { verifyRequestToken }

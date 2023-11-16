@@ -21,7 +21,8 @@ export const LoginForm = ({
     try { 
       const user = await loginService.login({        
         username, password,      
-      })      
+      })
+      window.localStorage.setItem('loggedAppUser', JSON.stringify(user))       
       setUser(user)
       setToken(user.token)      
       setUsername('')      

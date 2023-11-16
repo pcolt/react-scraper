@@ -6,25 +6,34 @@ import { topics } from '../services/helpers'
 // const baseUrl = '/api/jobs'
 
 export const UpdateRepos = ({ 
-  user, 
-  token 
+  user,
+  setUser, 
+  token,
+  setToken 
 }) => {
   const [messageSent, setMessageSent] = useState(null)
-  const [dateMsgSent, setdateMsgSent] = useState('') 
+  const [dateMsgSent, setDateMsgSent] = useState('') 
 
   const runCrawlerJob = async (topicValue) => {    
     console.log('Button pressed:', topicValue)  
 
-    const response = await runJobService.runJob(topicValue, token) 
-    // const body = { topic: topicValue }
-    // const config = {
-    //   headers: { Authorization: `Bearer ${token}` }
-    // }
-    // const response = await axios.post(baseUrl, body, config)   
-    console.log(response.message)
-    setMessageSent(topicValue)
-    const date = new Date()
-    setdateMsgSent(date.toLocaleString())
+    try {
+      const response = await runJobService.runJob(topicValue, token) 
+      // const body = { topic: topicValue }
+      // const config = {
+      //   headers: { Authorization: `Bearer ${token}` }
+      // }
+      // const response = await axios.post(baseUrl, body, config) 
+      console.log(response.message)
+      setMessageSent(topicValue)
+      const date = new Date()
+      setDateMsgSent(date.toLocaleString()) 
+
+    } catch (exception) {      
+      console.log('Error:', exception) 
+      setUser(null) 
+      setToken(null)
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
 const jobsRouter = require('express').Router()
 const logger = require('../utils/logger')
-const verifyToken = require('../utils/verify_token')
+const { verifyRequestToken } = require('../utils/verify_token')
 // const UserModel = require('../models/user_model')
 const redisClient = require('../utils/redis')
 
@@ -12,7 +12,7 @@ jobsRouter.post('/', async (request, response, next) => {
 
     logger.info('Inside jobsRouter.post("/"):')
 
-    const decodedToken = verifyToken(request)
+    const decodedToken = verifyRequestToken(request)
 
     await redisClient.connect()
     logger.info('client.isReady():', redisClient.isReady)

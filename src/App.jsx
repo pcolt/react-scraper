@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import { RepoCard } from './components/repoCard'
 import { LoginForm } from './components/loginForm'
@@ -29,6 +29,15 @@ const App = () => {
     console.log(event.target.value)
     setRepoSelected(event.target.value)
   }
+
+  useEffect(() => {    
+    const loggedUserJSON = window.localStorage.getItem('loggedAppUser')    
+    if (loggedUserJSON) {    
+      const user = JSON.parse(loggedUserJSON)      
+      setUser(user)      
+      setToken(user.token)    
+    }  
+  }, [])
 
   useEffect(() => {   // whenever orderType changes 
     if (orderType === null) { return }
@@ -89,7 +98,7 @@ const App = () => {
       {
         user === null ? 
         <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage} setToken={setToken}/> : 
-        <UpdateRepos user={user} token={token} ></UpdateRepos>
+        <UpdateRepos user={user} setUser={setUser} token={token} setToken={setToken}></UpdateRepos>
       }
       
     </div>
