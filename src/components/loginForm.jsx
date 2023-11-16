@@ -1,8 +1,11 @@
 import loginService from '../services/login'
 import { useState } from 'react'
+import { Notification } from './notification'
+import './loginForm.css'
 
 export const LoginForm = ({
   setUser,
+  errorMessage,
   setErrorMessage
 }) => {
   const [username, setUsername] = useState('')
@@ -14,7 +17,7 @@ export const LoginForm = ({
     event.preventDefault()    
     console.log('logging in with', username, password)  
 
-    try {      
+    try { 
       const user = await loginService.login({        
         username, password,      
       })      
@@ -31,29 +34,27 @@ export const LoginForm = ({
 
   return (
     <div>
+      <form className="formLogin" onSubmit={handleLogin}>
+        <label htmlFor="Username">Username</label>
+        <input
+          type="text"
+          value={username}
+          name="Username"
+          onChange={({ target }) => setUsername(target.value)}
+        />
+        <label htmlFor="Password">Password</label>
+        <input
+          type="password"
+          value={password}
+          name="Password"
+          onChange={({ target }) => setPassword(target.value)}
+        />
 
-      <form onSubmit={handleLogin}>
-        <div>
-          username
-            <input
-            type="text"
-            value={username}
-            name="Username"
-            onChange={({ target }) => setUsername(target.value)}
-          />
-        </div>
-        <div>
-          password
-            <input
-            type="password"
-            value={password}
-            name="Password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
         <button type="submit">login</button>
+
+        <Notification message={errorMessage} />
+
       </form> 
     </div>
-   
   )     
 }

@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { RepoCard } from './components/repoCard'
 import { LoginForm } from './components/loginForm'
-import { Notification } from './components/notification'
 import {compareByName, compareByStars } from './services/helpers'
-import loginService from './services/login'
 
 const baseUrl = '/api/repos'
 
@@ -83,10 +81,14 @@ const App = () => {
         {(sortedRepos.length > 0 ? sortedRepos : repos).map(repo =>
           <RepoCard key={repo.id} repo={repo} />
         )}
-      </div>
+      </div> 
 
-      <Notification message={errorMessage} /> 
-      {user === null ? <LoginForm user={user} setUser={setUser} setErrorMessage={setErrorMessage}/> : <div>user logged</div>}
+      {
+        user === null ? 
+        <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/> : 
+        <p>{user.username} logged in</p>
+      }
+      
     </div>
   )
 }
