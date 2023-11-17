@@ -11,8 +11,6 @@ export const LoginForm = ({
   const [password, setPassword] = useState('') 
   const [errorMessage, setErrorMessage] = useState(null)
 
-  const baseUrl = '/api/login'
-
   const handleLogin = async (event) => {    
     event.preventDefault()    
     console.log('logging in with', username, password)  

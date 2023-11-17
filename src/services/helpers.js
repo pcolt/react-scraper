@@ -22,11 +22,11 @@ const topics = [
   {
     display: 'Crawler',
     value: 'crawler'
-   },
-   {
+  },
+  {
     display: 'Climate Change',
     value: 'climatechange'
   }
- ]
+]
 
 export { compareByName, compareByStars, topics }

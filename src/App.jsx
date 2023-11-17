@@ -39,12 +39,12 @@ const App = () => {
 
       {
         user === null 
-        ? 
-        <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
-          <LoginForm user={user} changeUser={handleUserChange} changeToken={handleTokenChange}/> 
-        </Togglable>
-        : 
-        <UpdateRepos user={user} token={token} logOut={logOut}></UpdateRepos>
+          ? 
+          <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
+            <LoginForm user={user} changeUser={handleUserChange} changeToken={handleTokenChange}/> 
+          </Togglable>
+          : 
+          <UpdateRepos user={user} token={token} logOut={logOut}></UpdateRepos>
       }
       
     </div>
