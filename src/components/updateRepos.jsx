@@ -7,9 +7,9 @@ import { topics } from '../services/helpers'
 
 export const UpdateRepos = ({ 
   user,
-  setUser, 
+  changeUser, 
   token,
-  setToken 
+  changeToken 
 }) => {
   const [messageSent, setMessageSent] = useState(null)
   const [dateMsgSent, setDateMsgSent] = useState('') 
@@ -31,8 +31,8 @@ export const UpdateRepos = ({
 
     } catch (exception) {      
       console.log('Error:', exception) 
-      setUser(null) 
-      setToken(null)
+      changeUser(null) 
+      changeToken(null)
     }
   }
 

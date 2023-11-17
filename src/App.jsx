@@ -30,6 +30,18 @@ const App = () => {
     setRepoSelected(event.target.value)
   }
 
+  const handleUserChange = (newUser) => {
+    setUser(newUser)
+  }
+
+  const handleTokenChange = (newToken) => {
+    setUser(newToken)
+  }
+
+  const handleErrorMsgChange = (newErrorMsg) => {
+    setErrorMessage(newErrorMsg)
+  }
+
   useEffect(() => {    
     const loggedUserJSON = window.localStorage.getItem('loggedAppUser')    
     if (loggedUserJSON) {    
@@ -97,8 +109,8 @@ const App = () => {
 
       {
         user === null ? 
-        <LoginForm user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage} setToken={setToken}/> : 
-        <UpdateRepos user={user} setUser={setUser} token={token} setToken={setToken}></UpdateRepos>
+        <LoginForm user={user} changeUser={handleUserChange} errorMessage={errorMessage} changeErrMsg={handleErrorMsgChange} changeToken={handleTokenChange}/> : 
+        <UpdateRepos user={user} changeUser={handleUserChange} token={token} changeToken={handleTokenChange} ></UpdateRepos>
       }
       
     </div>

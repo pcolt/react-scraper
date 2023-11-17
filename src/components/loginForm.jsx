@@ -4,10 +4,10 @@ import { Notification } from './notification'
 import './loginForm.css'
 
 export const LoginForm = ({
-  setUser,
+  changeUser,
   errorMessage,
-  setErrorMessage,
-  setToken
+  changeErrMsg,
+  changeToken
 }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('') 
@@ -23,14 +23,14 @@ export const LoginForm = ({
         username, password,      
       })
       window.localStorage.setItem('loggedAppUser', JSON.stringify(user))       
-      setUser(user)
-      setToken(user.token)      
+      changeUser(user)
+      changeToken(user.token)      
       setUsername('')      
       setPassword('')
     } catch (exception) {      
-      setErrorMessage('Wrong credentials')      
+      changeErrMsg('Wrong credentials')      
       setTimeout(() => {        
-        setErrorMessage(null)      
+        changeErrMsg(null)      
       }, 5000)    
     }
   }
