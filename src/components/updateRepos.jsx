@@ -8,9 +8,8 @@ import './updateRepos.css'
 
 export const UpdateRepos = ({ 
   user,
-  changeUser, 
   token,
-  changeToken 
+  logOut
 }) => {
   const [messageSent, setMessageSent] = useState(null)
   const [dateMsgSent, setDateMsgSent] = useState('') 
@@ -32,8 +31,9 @@ export const UpdateRepos = ({
 
     } catch (exception) {      
       console.log('Error:', exception) 
-      changeUser(null) 
-      changeToken(null)
+      // changeUser(null) 
+      // changeToken(null)
+      logOut()
     }
   }
 
@@ -46,7 +46,7 @@ export const UpdateRepos = ({
       ))}
       {(messageSent) ? <p>{dateMsgSent} - New scraping job for topic <b>{messageSent}</b></p> : ''}
       <p><b>{user.username}</b> is logged</p>
-      <button onClick={() => { changeUser(null); changeToken(null) }}>Logout</button>
+      <button onClick={() => { logOut() }}>Logout</button>
     </div>
   )     
 }

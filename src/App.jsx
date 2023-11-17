@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import { RepoCard } from './components/repoCard'
 import { LoginForm } from './components/loginForm'
+import Togglable from './components/togglable'
 import {compareByName, compareByStars, topics } from './services/helpers'
 import { UpdateRepos } from './components/updateRepos'
 
@@ -12,7 +13,6 @@ const App = () => {
   const [repos, setRepos] = useState([])
   const [sortedRepos, setSortedRepos] = useState([]) // new state variable
   const [repoSelected, setRepoSelected] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
 
@@ -38,8 +38,10 @@ const App = () => {
     setToken(newToken)
   }
 
-  const handleErrorMsgChange = (newErrorMsg) => {
-    setErrorMessage(newErrorMsg)
+  const logOut = () => {
+    window.localStorage.removeItem('loggedAppUser')
+    setUser(null)
+    setToken(null)
   }
 
   useEffect(() => {    
@@ -108,9 +110,13 @@ const App = () => {
       </div> 
 
       {
-        user === null ? 
-        <LoginForm user={user} changeUser={handleUserChange} errorMessage={errorMessage} changeErrMsg={handleErrorMsgChange} changeToken={handleTokenChange}/> : 
-        <UpdateRepos user={user} changeUser={handleUserChange} token={token} changeToken={handleTokenChange} ></UpdateRepos>
+        user === null 
+        ? 
+        <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
+          <LoginForm user={user} changeUser={handleUserChange} changeToken={handleTokenChange}/> 
+        </Togglable>
+        : 
+        <UpdateRepos user={user} token={token} logOut={logOut}></UpdateRepos>
       }
       
     </div>

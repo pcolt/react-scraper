@@ -5,12 +5,11 @@ import './loginForm.css'
 
 export const LoginForm = ({
   changeUser,
-  errorMessage,
-  changeErrMsg,
   changeToken
 }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('') 
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const baseUrl = '/api/login'
 
@@ -28,9 +27,9 @@ export const LoginForm = ({
       setUsername('')      
       setPassword('')
     } catch (exception) {      
-      changeErrMsg('Wrong credentials')      
+      setErrorMessage('Wrong credentials')      
       setTimeout(() => {        
-        changeErrMsg(null)      
+        setErrorMessage(null)      
       }, 5000)    
     }
   }
