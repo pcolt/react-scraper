@@ -7,20 +7,15 @@ import { UpdateRepos } from './components/updateRepos'
 
 const App = () => {
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(null)
 
   const handleUserChange = (newUser) => {
     setUser(newUser)
   }
 
-  const handleTokenChange = (newToken) => {
-    setToken(newToken)
-  }
 
   const logOut = () => {
     window.localStorage.removeItem('loggedAppUser')
     setUser(null)
-    setToken(null)
   }
 
   useEffect(() => {    
@@ -28,7 +23,6 @@ const App = () => {
     if (loggedUserJSON) {    
       const user = JSON.parse(loggedUserJSON)      
       setUser(user)      
-      setToken(user.token)    
     }  
   }, [])
 
@@ -41,10 +35,10 @@ const App = () => {
         user === null 
           ? 
           <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
-            <LoginForm user={user} changeUser={handleUserChange} changeToken={handleTokenChange}/> 
+            <LoginForm user={user} changeUser={handleUserChange} /> 
           </Togglable>
           : 
-          <UpdateRepos user={user} token={token} logOut={logOut}></UpdateRepos>
+          <UpdateRepos user={user} logOut={logOut}></UpdateRepos>
       }
       
     </div>

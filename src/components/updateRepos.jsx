@@ -8,7 +8,6 @@ import './updateRepos.css'
 
 export const UpdateRepos = ({ 
   user,
-  token,
   logOut
 }) => {
   const [messageSent, setMessageSent] = useState(null)
@@ -18,7 +17,7 @@ export const UpdateRepos = ({
     console.log('Button pressed:', topicValue)  
 
     try {
-      const response = await runJobService.runJob(topicValue, token) 
+      const response = await runJobService.runJob(topicValue, user.token) 
       // const body = { topic: topicValue }
       // const config = {
       //   headers: { Authorization: `Bearer ${token}` }

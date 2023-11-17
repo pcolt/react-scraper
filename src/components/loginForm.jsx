@@ -21,7 +21,6 @@ export const LoginForm = ({
       })
       window.localStorage.setItem('loggedAppUser', JSON.stringify(user))       
       changeUser(user)
-      changeToken(user.token)      
       setUsername('')      
       setPassword('')
     } catch (exception) {      
