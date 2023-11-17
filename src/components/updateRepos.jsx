@@ -1,6 +1,7 @@
 import runJobService from '../services/runJob'
 import { useState } from 'react'
 import { topics } from '../services/helpers'
+import './updateRepos.css'
 // import axios from 'axios'
 
 // const baseUrl = '/api/jobs'
@@ -37,7 +38,7 @@ export const UpdateRepos = ({
   }
 
   return (
-    <div>
+    <div className='updReposDiv'>
       <h1>Update repos</h1>
       <h3>Run crawler by topic</h3>
       {topics.map(topic => (
@@ -45,6 +46,7 @@ export const UpdateRepos = ({
       ))}
       {(messageSent) ? <p>{dateMsgSent} - New scraping job for topic <b>{messageSent}</b></p> : ''}
       <p><b>{user.username}</b> is logged</p>
+      <button onClick={() => { changeUser(null); changeToken(null) }}>Logout</button>
     </div>
   )     
 }

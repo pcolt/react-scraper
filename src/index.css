@@ -83,15 +83,6 @@ select {
   cursor: pointer;
 }
 
-form {
-  margin: 2rem 2rem 2rem 0rem;
-  padding: 0.5rem;
-  /* background-color:rgba(212, 255, 195, 0.603); */
-  background-color: #cbd9e8;
-  /* box-shadow: 10px 10px; */
-  border-radius: 8px;
-}
-
 input[type=text], input[type=password] {
   border-radius: 8px;
   border: 1px solid transparent;

@@ -35,7 +35,7 @@ const App = () => {
   }
 
   const handleTokenChange = (newToken) => {
-    setUser(newToken)
+    setToken(newToken)
   }
 
   const handleErrorMsgChange = (newErrorMsg) => {
