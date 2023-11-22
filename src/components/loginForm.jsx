@@ -8,26 +8,26 @@ export const LoginForm = ({
   changeToken
 }) => {
   const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('') 
+  const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
 
-  const handleLogin = async (event) => {    
-    event.preventDefault()    
-    console.log('logging in with', username, password)  
+  const handleLogin = async (event) => {
+    event.preventDefault()
+    console.log('logging in with', username, password)
 
-    try { 
-      const user = await loginService.login({        
-        username, password,      
+    try {
+      const user = await loginService.login({
+        username, password,
       })
-      window.localStorage.setItem('loggedAppUser', JSON.stringify(user))       
+      window.localStorage.setItem('loggedAppUser', JSON.stringify(user))
       changeUser(user)
-      setUsername('')      
+      setUsername('')
       setPassword('')
-    } catch (exception) {      
-      setErrorMessage('Wrong credentials')      
-      setTimeout(() => {        
-        setErrorMessage(null)      
-      }, 5000)    
+    } catch (exception) {
+      setErrorMessage('Wrong credentials')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
     }
   }
 
@@ -53,7 +53,7 @@ export const LoginForm = ({
 
         <Notification message={errorMessage} />
 
-      </form> 
+      </form>
     </div>
-  )     
+  )
 }

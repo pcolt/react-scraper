@@ -15,11 +15,11 @@ const mongoose = require('mongoose')
 mongoose.set('strictQuery',false)     // connecting to mongodb
 logger.info('connecting to ', config.MONGO_URL)
 mongoose.connect(config.MONGO_URL)
-  .then(() => {    
-    logger.info('connected to MongoDB')  
-  })  
-  .catch((error) => {    
-    logger.info('error connecting to MongoDB:', error.message)  
+  .then(() => {
+    logger.info('connected to MongoDB')
+  })
+  .catch((error) => {
+    logger.info('error connecting to MongoDB:', error.message)
   })
 
 const app = express()

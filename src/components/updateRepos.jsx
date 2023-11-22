@@ -6,31 +6,31 @@ import './updateRepos.css'
 
 // const baseUrl = '/api/jobs'
 
-export const UpdateRepos = ({ 
+export const UpdateRepos = ({
   user,
   logOut
 }) => {
   const [messageSent, setMessageSent] = useState(null)
-  const [dateMsgSent, setDateMsgSent] = useState('') 
+  const [dateMsgSent, setDateMsgSent] = useState('')
 
-  const runCrawlerJob = async (topicValue) => {    
-    console.log('Button pressed:', topicValue)  
+  const runCrawlerJob = async (topicValue) => {
+    console.log('Button pressed:', topicValue)
 
     try {
-      const response = await runJobService.runJob(topicValue, user.token) 
+      const response = await runJobService.runJob(topicValue, user.token)
       // const body = { topic: topicValue }
       // const config = {
       //   headers: { Authorization: `Bearer ${token}` }
       // }
-      // const response = await axios.post(baseUrl, body, config) 
+      // const response = await axios.post(baseUrl, body, config)
       console.log(response.message)
       setMessageSent(topicValue)
       const date = new Date()
-      setDateMsgSent(date.toLocaleString()) 
+      setDateMsgSent(date.toLocaleString())
 
-    } catch (exception) {      
-      console.log('Error:', exception) 
-      // changeUser(null) 
+    } catch (exception) {
+      console.log('Error:', exception)
+      // changeUser(null)
       // changeToken(null)
       logOut()
     }
@@ -47,5 +47,5 @@ export const UpdateRepos = ({
       <p><b>{user.username}</b> is logged</p>
       <button onClick={() => { logOut() }}>Logout</button>
     </div>
-  )     
+  )
 }

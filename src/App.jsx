@@ -18,12 +18,12 @@ const App = () => {
     setUser(null)
   }
 
-  useEffect(() => {    
-    const loggedUserJSON = window.localStorage.getItem('loggedAppUser')    
-    if (loggedUserJSON) {    
-      const user = JSON.parse(loggedUserJSON)      
-      setUser(user)      
-    }  
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedAppUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+    }
   }, [])
 
   return (
@@ -32,15 +32,15 @@ const App = () => {
       <Repos></Repos>
 
       {
-        user === null 
-          ? 
+        user === null
+          ?
           <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
-            <LoginForm user={user} changeUser={handleUserChange} /> 
+            <LoginForm user={user} changeUser={handleUserChange} />
           </Togglable>
-          : 
+          :
           <UpdateRepos user={user} logOut={logOut}></UpdateRepos>
       }
-      
+
     </div>
   )
 }

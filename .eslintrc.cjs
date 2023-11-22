@@ -11,24 +11,16 @@ module.exports = {
 		'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
 	],
+	'ignorePatterns': [
+		'dist', 
+		'.eslintrc.cjs',
+		'node_modules'
+	],
 	'settings': {
 		'react': {
 			'version': 'detect'
 		}
 	},
-	'overrides': [
-		{
-			'env': {
-				'node': true
-			},
-			'files': [
-				'.eslintrc.{js,cjs}'
-			],
-			'parserOptions': {
-				'sourceType': 'script'
-			}
-		}
-	],
 	'parserOptions': {
 		'ecmaVersion': 'latest',
 		'sourceType': 'module'
@@ -54,9 +46,17 @@ module.exports = {
 			'warn',
 			'never'
 		],
-		"react/react-in-jsx-scope": "off",
-		"react/prop-types": "off",
-		"no-unused-vars": [
+		"eqeqeq": "error",
+		"no-trailing-spaces": "warn",
+		"arrow-spacing": [
+			"error", { "before": true, "after": true }
+		],
+		'no-console': [
+			'off'
+		],
+		'react/react-in-jsx-scope': 'off',
+		'react/prop-types': 'off',
+		'no-unused-vars': [
 			'warn'
 		]
 	},

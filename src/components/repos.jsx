@@ -25,7 +25,7 @@ const Repos = () => {
     setRepoSelected(event.target.value)
   }
 
-  useEffect(() => {   // whenever orderType changes 
+  useEffect(() => {   // whenever orderType changes
     if (orderType === null) { return }
 
     console.log(`Reorder by ${orderType}`)
@@ -33,13 +33,13 @@ const Repos = () => {
 
     if (orderType === 'name') {
       setSortedRepos(copyRepos.sort(compareByName))
-    } 
+    }
     if (orderType === 'stars') {
       setSortedRepos(copyRepos.sort(compareByStars))
     }
   }, [orderType, repos])
 
-  useEffect(() => {   // whenever repoSelected changes 
+  useEffect(() => {   // whenever repoSelected changes
     if (repoSelected === '') { return }
 
     console.log(`Display ${repoSelected}`)
@@ -50,7 +50,7 @@ const Repos = () => {
       .get(`${baseUrl}/${repoSelected}`).then(response => {
         console.log(`repos ${repoSelected} retrieved`)
         setRepos(response.data)
-      }) 
+      })
 
   }, [repoSelected])
 
@@ -79,7 +79,7 @@ const Repos = () => {
         {(sortedRepos.length > 0 ? sortedRepos : repos).map(repo =>
           <RepoCard key={repo.id} repo={repo} />
         )}
-      </div> 
+      </div>
     </div>
   )
 }

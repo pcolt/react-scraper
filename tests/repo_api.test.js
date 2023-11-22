@@ -34,7 +34,7 @@ describe('interface tests on /api/repos route', () => {
         expect(response.body).toHaveLength(helper.mockClimatechangeRepos.length)
       })
   })
-  test('test GET api/repos/crawler', async () => {  
+  test('test GET api/repos/crawler', async () => {
     await api
       .get('/api/repos/crawler')
       .expect(200)

@@ -18,7 +18,7 @@ function compareByStars( a, b ) {
   return 0
 }
 
-const topics = [ 
+const topics = [
   {
     display: 'Crawler',
     value: 'crawler'

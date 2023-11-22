@@ -16,11 +16,11 @@ const unknownEndpoint = (request, response) => {      // all other not defined r
 const errorHandler = (error, request, response, next) => {
   logger.error('errorHandler:', error.message)
 
-  if (error.name ===  'JsonWebTokenError') {    
+  if (error.name ===  'JsonWebTokenError') {
     return response.status(401).json({ error: 'invlaid token' })
-  } else if (error.name ===  'TokenExpiredError') {    
+  } else if (error.name ===  'TokenExpiredError') {
     return response.status(401).json({ error: 'token expired' })
-  }  
+  }
 
   next(error)
 }
