@@ -24,11 +24,16 @@ test('Repo renders content', () => {
 
   const { container } = render(<RepoCard repo={repo} />)
   // const div = container.querySelector('.repoCardDescription')
-  const div = getByTestId(container, 'repoCardDescription')
-  expect(div).toHaveTextContent('OpenEMS - Open Source Energy Management System')
+  // screen.debug()
+
+  const description = getByTestId(container, 'repoCardDescription')
+  // screen.debug(description)
+  expect(description).toHaveTextContent('OpenEMS - Open Source Energy Management System')
+
+  const repoLink = screen.getByRole('link', { name: 'GitHub' })
+  expect(repoLink).toHaveAttribute('href', 'https://github.com/OpenEMS/openems')
 
   // const element = screen.getByText('OpenEMS - Open Source Energy Management System')
   // expect(element).toBeDefined()
 
-  // screen.debug()
 })

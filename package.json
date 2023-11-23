@@ -13,6 +13,8 @@
     "backend:dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint . --ext js,jsx",
     "lint:fix": "eslint . --ext js,jsx --fix",
+    "test:back": "NODE_ENV=test jest --verbose --runInBand --selectProjects backend",
+    "test:front": "NODE_ENV=test jest --verbose --runInBand --selectProjects frontend",
     "tests": "NODE_ENV=test jest --verbose --runInBand",
     "deploy": "fly deploy --ha=false",
     "deploy:full": "npm run build && npm run deploy"
@@ -35,6 +37,7 @@
     "@flydotio/dockerfile": "^0.4.10",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

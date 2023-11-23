@@ -9,7 +9,7 @@ The data is scraped with the Nodejs application https://github.com/pcolt/playwri
 Start frontend in dev:   
 `npm run vite:dev`
 
-Build frontend:   
+Build frontend React via Vite:   
 `npm run build`
 
 Start backend in development mode (auto-starts on change):   
@@ -18,14 +18,17 @@ Start backend in development mode (auto-starts on change):
 Run eslint over backend and frontend JS files:
 `npm run lint`
 
-Run tests over backend files:
-`npm run backend:test`
-
-Build frontend React via Vite:   
-`npm run build`
-
 Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
 `npm run build:full`
+
+Run tests over backend files:
+`npm run test:back`
+
+Run tests over frontend files:
+`npm run test:front`
+
+Run tests over both front and backend
+`npm run tests`
 
 Only deploy (does not re-build frontend) on Fly.io:   
 `npm run deploy`
