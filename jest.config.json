@@ -1,0 +1,27 @@
+{
+  "projects": [
+    {
+      "displayName": "backend",
+      "testEnvironment": "node",
+      "testMatch": [
+        "<rootDir>/tests/**/*.test.js"
+      ],
+      "coveragePathIgnorePatterns": [
+        "<rootDir>/node_modules/"
+      ]
+    },
+    {
+      "displayName": "frontend",
+      "testEnvironment": "jsdom",
+      "testMatch": [
+        "<rootDir>/src/**/*.test.js"
+      ],
+      "coveragePathIgnorePatterns": [
+        "<rootDir>/node_modules/"
+      ],
+      "moduleNameMapper": {
+        "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
+      }
+    }
+  ]
+}

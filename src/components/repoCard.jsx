@@ -5,7 +5,7 @@ export const RepoCard = ({ repo }) => {
   return (
     <div className="repoCard">
       <h2>{repo.repoName}</h2>
-      <p>{repo.description}</p>
+      <p data-testid='repoCardDescription'>{repo.description}</p>
       <a href={repo.url}><img className="logo" src={githublogo} />GitHub</a>
       <p>Stars &#11088; {repo.stars}</p>
     </div>
