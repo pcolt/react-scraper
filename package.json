@@ -13,9 +13,9 @@
     "backend:dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint . --ext js,jsx",
     "lint:fix": "eslint . --ext js,jsx --fix",
-    "test:back": "NODE_ENV=test jest --verbose --runInBand --selectProjects backend",
-    "test:front": "NODE_ENV=test jest --verbose --runInBand --selectProjects frontend",
-    "tests": "NODE_ENV=test jest --verbose --runInBand",
+    "test:back": "NODE_ENV=test jest --runInBand --selectProjects backend",
+    "test:front": "NODE_ENV=test jest --runInBand --selectProjects frontend",
+    "tests": "NODE_ENV=test jest --runInBand --coverage",
     "deploy": "fly deploy --ha=false",
     "deploy:full": "npm run build && npm run deploy"
   },

@@ -1,4 +1,5 @@
 {
+  "verbose": true,
   "projects": [
     {
       "displayName": "backend",
@@ -23,5 +24,12 @@
         "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
       }
     }
+  ],
+  "collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+    "!**/tests/**",
+    "!vite.config.js"
   ]
 }

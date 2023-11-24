@@ -9,17 +9,13 @@ The data is scraped with the Nodejs application https://github.com/pcolt/playwri
 Start frontend in dev:   
 `npm run vite:dev`
 
-Build frontend React via Vite:   
-`npm run build`
-
 Start backend in development mode (auto-starts on change):   
 `npm run backend:dev`
 
+##### Lint + Tests
+
 Run eslint over backend and frontend JS files:
 `npm run lint`
-
-Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
-`npm run build:full`
 
 Run tests over backend files:
 `npm run test:back`
@@ -27,8 +23,19 @@ Run tests over backend files:
 Run tests over frontend files:
 `npm run test:front`
 
-Run tests over both front and backend
+Run tests over frontend files with coverage report (open in browser [coverage/lcov-report/index.html](coverage/lcov-report/index.html)):
+`npm run test:front -- --coverage --collectCoverageFrom='src/**/*.{jsx,js}'`
+
+Run tests over both front and backend including coverage (open in browser [coverage/lcov-report/index.html](coverage/lcov-report/index.html)):
 `npm run tests`
+
+##### Build + Deploy
+
+Build frontend React via Vite:   
+`npm run build`
+
+Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
+`npm run build:full`
 
 Only deploy (does not re-build frontend) on Fly.io:   
 `npm run deploy`
@@ -42,7 +49,7 @@ Watch logs of production machine on Fly.io:
 ##### VSCode REST Client
 
 HTTP requests to the express endpoints are in `requests` folder (Installation of VSCode plugin REST Client is required).
-To change environment variables from 'local' to 'production' press:
+To change environment variables ([.vscode/settings.json](.vscode/settings.json)) from 'local' to 'production' press:
 `ctrl+alt+e`
 
 ## Install
