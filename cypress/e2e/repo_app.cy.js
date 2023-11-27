@@ -28,6 +28,15 @@ describe('Test login app part', () => {
     cy.get('#login-button').click()
     cy.contains('root is logged')
   })
+
+  it('A user can not login with wrong password', function () {
+    cy.contains('Show login').click()
+    cy.get('input[name="Username"]').type('root')
+    cy.get('input[name="Password"]').type('wrong')
+    cy.get('#login-button').click()
+    cy.get('.error').should('contain','Wrong credentials')
+    cy.get('html').should('not.contain', 'root is logged')
+  })
 })
 
 // describe('When user is logged in', function() {
