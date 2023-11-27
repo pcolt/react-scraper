@@ -1,0 +1,11 @@
+### reset repos
+POST {{baseUrl}}api/testing/resetrepos HTTP/1.1
+Content-Type: application/json
+
+{}
+
+### reset users
+POST {{baseUrl}}api/testing/resetusers HTTP/1.1
+Content-Type: application/json
+
+{}

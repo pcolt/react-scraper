@@ -1,2 +1,0 @@
-// get all repos that have topic 'crawler'
-GET {{baseUrl}}api/repos/crawler

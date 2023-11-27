@@ -1,16 +1,8 @@
-// import mongoose from 'mongoose'
-// import supertest from 'supertest'
-// import app from '../app'
-// import {jest} from '@jest/globals';
-// jest.useFakeTimers();
 const mongoose = require('mongoose')
 const {describe, expect, test} = require('@jest/globals')   // explicit import actaully required only for typescript
 const supertest = require('supertest')
 const app = require('../app')
-const { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model')
 const helper = require('./test_helper')
-const bcrypt = require('bcrypt')
-const UserModel = require('../models/user_model')
 const jwt = require('jsonwebtoken')
 
 const api = supertest(app)
@@ -18,11 +10,8 @@ const api = supertest(app)
 describe('interface tests on /api/repos route', () => {
   // Applies only to tests in this describe block
   beforeEach(async () => {
-    await RepoClimatechangeModel.deleteMany()
-    await RepoClimatechangeModel.insertMany(helper.mockClimatechangeRepos)
-    await RepoCrawlerModel.deleteMany()
-    await RepoCrawlerModel.insertMany(helper.mockCrawlerRepos)
-    console.log('Data in database re-initialized')
+    await api.post('/api/testing/resetrepos')
+    console.log('Repos data in database re-initialized')
   })
   test('test GET api/repos/climatechange', async () => {
     await api
@@ -48,12 +37,8 @@ describe('interface tests on /api/repos route', () => {
 
 describe('Interface tests on api/users and api/login routes. Collection has initially one user in db.', () => {
   beforeEach(async () => {
-    await UserModel.deleteMany({})                                    // delete all users
-
-    const passwordHash = await bcrypt.hash('sekret', 10)
-    const user = new UserModel({ username: 'root', passwordHash })    // add 1 initial user
-
-    await user.save()
+    await api.post('/api/testing/resetusers')
+    console.log('Repos data in database re-initialized')
   })
 
   test('Creation succeeds with a new username', async () => {

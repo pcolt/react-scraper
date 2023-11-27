@@ -1,2 +1,0 @@
-// get all repos that have topic 'climatechange'
-GET {{baseUrl}}api/repos/climatechange

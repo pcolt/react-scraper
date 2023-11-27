@@ -1,0 +1,5 @@
+### get all repos that have topic 'climatechange'
+GET {{baseUrl}}api/repos/climatechange
+
+### get all repos that have topic 'crawler'
+GET {{baseUrl}}api/repos/crawler

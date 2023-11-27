@@ -1,14 +1,24 @@
-describe('Repos app', () => {
+describe('Test repos app part', () => {
   beforeEach(function() {
+    cy.request('POST', 'http://localhost:3001/api/testing/resetrepos')
     cy.visit('http://localhost:5173')
   })
 
-  it('front page can be opened', () => {
+  it('Main page can be opened and a topic can be selected and displaied', function () {
     cy.contains('Repos')
     cy.contains('Select a topic to search:')
+    cy.get('#topic-select').select('climatechange')
+    cy.contains('openems')
+  })
+})
+
+describe('Test login app part', () => {
+  beforeEach(function() {
+    cy.request('POST', 'http://localhost:3001/api/testing/resetusers')
+    cy.visit('http://localhost:5173')
   })
 
-  it('user can login', function () {
+  it('A user can login', function () {
     cy.contains('Show login').click()
     // cy.get('input:first').type('root')
     cy.get('input[name="Username"]').type('root')
@@ -17,11 +27,6 @@ describe('Repos app', () => {
     // cy.contains('Login').click()
     cy.get('#login-button').click()
     cy.contains('root is logged')
-  })
-
-  it('select a topic to display', function () {
-    cy.get('#topic-select').select('climatechange')
-    cy.contains('openems')
   })
 })
 
