@@ -4,8 +4,7 @@ import { Notification } from './notification'
 import './loginForm.css'
 
 export const LoginForm = ({
-  changeUser,
-  changeToken
+  changeUser
 }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -49,7 +48,7 @@ export const LoginForm = ({
           onChange={({ target }) => setPassword(target.value)}
         />
 
-        <button type="submit">Login</button>
+        <button id="login-button" type="submit">Login</button>
 
         <Notification message={errorMessage} />
 

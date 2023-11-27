@@ -59,7 +59,7 @@ const Repos = () => {
       <h1>Repos</h1>
       <div>
         <h3>Select a topic to search:</h3>
-        <select value={repoSelected} onChange={handleSelectRepo}>
+        <select id="topic-select" value={repoSelected} onChange={handleSelectRepo}>
           <option value='' disabled={true}>Select an option</option>
           {topics.map(topic => (
             <option key={topic.value} value={topic.value}>{topic.display}</option>

@@ -29,6 +29,9 @@ Run tests over frontend files with coverage report (open in browser [coverage/lc
 Run tests over both front and backend including coverage (open in browser [coverage/lcov-report/index.html](coverage/lcov-report/index.html)):
 `npm run tests`
 
+Run e2e tests with cypress
+launch frontend with `npm run vite`, and backend in testing mode `npm run backend:test`, finally launch cypress `npm run cypress:open` 
+
 ##### Build + Deploy
 
 Build frontend React via Vite:   

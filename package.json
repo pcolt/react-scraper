@@ -11,13 +11,15 @@
     "vite:preview": "vite preview",
     "backend:start": "node index.js",
     "backend:dev": "NODE_ENV=development nodemon index.js",
+    "backend:test": "NODE_ENV=test nodemon index.js",
     "lint": "eslint . --ext js,jsx",
     "lint:fix": "eslint . --ext js,jsx --fix",
     "test:back": "NODE_ENV=test jest --runInBand --selectProjects backend",
     "test:front": "NODE_ENV=test jest --runInBand --selectProjects frontend",
     "tests": "NODE_ENV=test jest --runInBand --coverage",
     "deploy": "fly deploy --ha=false",
-    "deploy:full": "npm run build && npm run deploy"
+    "deploy:full": "npm run build && npm run deploy",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "axios": "^1.6.0",
@@ -41,7 +43,9 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "cypress": "^13.6.0",
     "eslint": "^8.52.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
