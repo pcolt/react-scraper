@@ -1,7 +1,9 @@
 describe('Test repos app part', () => {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/resetrepos')
-    cy.visit('http://localhost:5173')
+    // cy.request('POST', 'http://localhost:3001/api/testing/resetrepos')
+    cy.request('POST', `${Cypress.env('backendUrl')}/api/testing/resetrepos`) // use backendUrl from cypress.config.js
+    // cy.visit('http://localhost:5173')     // not needed, because baseUrl is set in cypress.config.js
+    cy.visit('/')
   })
 
   it('Main page can be opened and a topic can be selected and displaied', function () {
@@ -14,8 +16,8 @@ describe('Test repos app part', () => {
 
 describe('Test login app part', () => {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/resetusers')
-    cy.visit('http://localhost:5173')
+    cy.request('POST', `${Cypress.env('backendUrl')}/api/testing/resetusers`)
+    cy.visit('/')
   })
 
   it('A user can login', function () {
@@ -39,10 +41,19 @@ describe('Test login app part', () => {
   })
 })
 
-// describe('When user is logged in', function() {
-//   beforeEach(function() {
-//     cy.get('input[name="Username"]').type('root')
-//     cy.get('input[name="Password"]').type('sekret')
-//     cy.get('#login-button').click()
-//   })
-// })
+describe('When user is logged in', function() {
+  beforeEach(function() {
+    cy.request('POST', `${Cypress.env('backendUrl')}/api/login`, {
+      username: 'root',
+      password: 'sekret'
+    }).then(response => {
+      localStorage.setItem('loggedAppUser', JSON.stringify(response.body))
+      cy.visit('/')
+    })
+  })
+
+  it('a new message for a new scraping job can sent', function() {
+    cy.get('[data-testid="btnRunTestCrawler"]').click()
+    cy.contains('New scraping job for topic crawler')
+  })
+})

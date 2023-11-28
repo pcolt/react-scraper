@@ -30,7 +30,8 @@ Run tests over both front and backend including coverage (open in browser [cover
 `npm run tests`
 
 Run e2e tests with cypress
-launch frontend with `npm run vite`, and backend in testing mode `npm run backend:test`, finally launch cypress `npm run cypress:open` 
+launch frontend with `npm run vite`, and backend in testing mode `npm run backend:test`, finally launch cypress `npm run cypress:open`   
+or run cypress from command line `npm test:e2e`
 
 ##### Build + Deploy
 

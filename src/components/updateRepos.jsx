@@ -41,7 +41,9 @@ export const UpdateRepos = ({
       <h1>Update repos</h1>
       <h3>Run crawler by topic</h3>
       {topics.map(topic => (
-        <button key={topic.value} onClick={() => runCrawlerJob(topic.value)}>{topic.display}</button>
+        <button key={topic.value} onClick={() => runCrawlerJob(topic.value)} data-testid={topic.btnRunTestId}>
+          {topic.display}
+        </button>
       ))}
       {(messageSent) ? <p>{dateMsgSent} - New scraping job for topic <b>{messageSent}</b></p> : ''}
       <p><b>{user.username}</b> is logged</p>

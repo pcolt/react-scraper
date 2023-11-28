@@ -21,11 +21,13 @@ function compareByStars( a, b ) {
 const topics = [
   {
     display: 'Crawler',
-    value: 'crawler'
+    value: 'crawler',
+    btnRunTestId: 'btnRunTestCrawler'
   },
   {
     display: 'Climate Change',
-    value: 'climatechange'
+    value: 'climatechange',
+    btnRunTestId: 'btnRunTestClimateChange'
   }
 ]
 
