@@ -6,8 +6,8 @@ The data is scraped with the Nodejs application https://github.com/pcolt/playwri
 
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >
-<img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" height="400"/>
-<img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" height="400"/>
+<img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" height="350"/>
+<img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" height="350"/>
 </div>
 <!-- ![App screenshot](/public/react-express-2.png "App screenshot") -->
 
