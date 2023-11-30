@@ -4,6 +4,13 @@ The app show a list of repositories about **climatechange** topic and it is up o
    
 The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.
 
+<!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
+<div >
+<img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" height="400"/>
+<img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" height="400"/>
+</div>
+<!-- ![App screenshot](/public/react-express-2.png "App screenshot") -->
+
 ## Usage
 
 Start frontend in dev:   
@@ -106,4 +113,4 @@ Currently, two official plugins are available:
 
 ## References
 
-The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/).
+The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/), [part 4](https://fullstackopen.com/en/part4/), [part 5](https://fullstackopen.com/en/part5/), [part 6](https://fullstackopen.com/en/part6/).
