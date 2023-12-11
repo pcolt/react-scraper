@@ -96,3 +96,13 @@ input[type=text], input[type=password] {
   /* background-color: #f9f9f9; */
   /* cursor: pointer; */
 }
+
+.toolbarLink {
+  text-decoration: none;
+  padding: 1rem;
+  color: #1E2F8E;
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}

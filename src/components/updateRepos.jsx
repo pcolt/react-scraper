@@ -46,8 +46,6 @@ export const UpdateRepos = ({
         </button>
       ))}
       {(messageSent) ? <p>{dateMsgSent} - New scraping job for topic <b>{messageSent}</b></p> : ''}
-      <p><b>{user.username}</b> is logged</p>
-      <button onClick={() => { logOut() }}>Logout</button>
     </div>
   )
 }

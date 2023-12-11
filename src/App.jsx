@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
 // import axios from 'axios'
 import { LoginForm } from './components/loginForm'
-import Togglable from './components/togglable'
+// import Togglable from './components/togglable'
 import Repos from './components/repos'
 import { UpdateRepos } from './components/updateRepos'
+import './index.css'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -28,19 +30,33 @@ const App = () => {
 
   return (
     <div>
-
-      <Repos></Repos>
+      <div >
+        <Link className="toolbarLink" to="/">Repos</Link>
+        <Link className="toolbarLink" to="/update">Update Repos</Link>
+        {
+          user ?
+            <b className="toolbarLink" onClick={logOut}>Log out</b> :
+            <Link className="toolbarLink" to="/login">Log in</Link>
+        }
+      </div>
 
       {
-        user === null
-          ?
-          <Togglable buttonShowLabel='Show login' buttonHideLabel='Hide login'>
-            <LoginForm user={user} changeUser={handleUserChange} />
-          </Togglable>
-          :
-          <UpdateRepos user={user} logOut={logOut}></UpdateRepos>
+        user ?
+          <p style={{margin: '1rem'}}>User <b>{user.username}</b> is logged in.</p> :
+          ''
       }
 
+      <Routes>
+        <Route path="/" element={<Repos />} />
+        <Route path="/update"
+          element= {
+            user ?
+              <UpdateRepos user={user} logOut={logOut}/> :
+              <Navigate replace to="/login" />
+          }
+        />
+        <Route path="/login" element={<LoginForm changeUser={handleUserChange}/>} />
+      </Routes>
     </div>
   )
 }

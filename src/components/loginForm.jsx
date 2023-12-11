@@ -1,6 +1,7 @@
 import loginService from '../services/login'
 import { useState } from 'react'
 import { Notification } from './notification'
+import { useNavigate } from 'react-router-dom'
 import './loginForm.css'
 
 export const LoginForm = ({
@@ -9,6 +10,8 @@ export const LoginForm = ({
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -22,6 +25,9 @@ export const LoginForm = ({
       changeUser(user)
       setUsername('')
       setPassword('')
+
+      navigate('/update')
+
     } catch (exception) {
       setErrorMessage('Wrong credentials')
       setTimeout(() => {
@@ -31,7 +37,7 @@ export const LoginForm = ({
   }
 
   return (
-    <div>
+    <div style={{marginTop: '2rem'}}>
       <form className="formLogin" onSubmit={handleLogin}>
         <label htmlFor="Username">Username</label>
         <input
