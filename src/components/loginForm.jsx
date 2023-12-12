@@ -2,7 +2,15 @@ import loginService from '../services/login'
 import { useState } from 'react'
 import { Notification } from './notification'
 import { useNavigate } from 'react-router-dom'
-import './loginForm.css'
+import styled from 'styled-components'
+
+// styled components
+const FormLoginStyled = styled.form`
+  margin: 2rem;
+  padding: 2rem;
+  background-color: #cbd9e8;
+  border-radius: 8px;
+`
 
 export const LoginForm = ({
   changeUser
@@ -38,28 +46,32 @@ export const LoginForm = ({
 
   return (
     <div style={{marginTop: '2rem'}}>
-      <form className="formLogin" onSubmit={handleLogin}>
+      <FormLoginStyled onSubmit={handleLogin}>
         <h2>Login</h2>
-        <label htmlFor="Username">Username</label>
-        <input
-          type="text"
-          value={username}
-          name="Username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
+        <div style={{display: 'block'}}>
+          <label htmlFor="Username">Username</label>
+          <input
+            type="text"
+            value={username}
+            name="Username"
+            onChange={({ target }) => setUsername(target.value)}
+          />
+        </div>
+        <div style={{display: 'block'}}>
         <label htmlFor="Password">Password</label>
-        <input
-          type="password"
-          value={password}
-          name="Password"
-          onChange={({ target }) => setPassword(target.value)}
-        />
+          <input
+            type="password"
+            value={password}
+            name="Password"
+            onChange={({ target }) => setPassword(target.value)}
+          />
+        </div>
 
         <button id="login-button" type="submit">Login</button>
 
         <Notification message={errorMessage} />
 
-      </form>
+      </FormLoginStyled>
     </div>
   )
 }
