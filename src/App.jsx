@@ -5,7 +5,7 @@ import { LoginForm } from './components/loginForm'
 // import Togglable from './components/togglable'
 import Repos from './components/repos'
 import { UpdateRepos } from './components/updateRepos'
-import './index.css'
+import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -30,13 +30,13 @@ const App = () => {
 
   return (
     <div>
-      <div >
+      <div className='topNavBar'>
         <Link className="toolbarLink" to="/">Repos</Link>
         <Link className="toolbarLink" to="/update">Update Repos</Link>
         {
           user ?
-            <b className="toolbarLink" onClick={logOut}>Log out</b> :
-            <Link className="toolbarLink" to="/login">Log in</Link>
+            <b className="toolbarLogin" onClick={logOut}>Log out</b> :
+            <Link className="toolbarLogin" to="/login">Log in</Link>
         }
       </div>
 

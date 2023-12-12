@@ -39,6 +39,7 @@ export const LoginForm = ({
   return (
     <div style={{marginTop: '2rem'}}>
       <form className="formLogin" onSubmit={handleLogin}>
+        <h2>Login</h2>
         <label htmlFor="Username">Username</label>
         <input
           type="text"

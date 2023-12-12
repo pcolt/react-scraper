@@ -2,6 +2,7 @@ import {compareByName, compareByStars, topics } from '../services/helpers'
 import { useEffect, useState } from 'react'
 import { RepoCard } from './repoCard'
 import axios from 'axios'
+import './repos.css'
 
 
 const Repos = () => {
@@ -55,8 +56,8 @@ const Repos = () => {
   }, [repoSelected])
 
   return (
-    <div>
-      <h1>Repos</h1>
+    <div className='displayReposDiv'>
+      <h2>Repos</h2>
       <div>
         <h3>Select a topic to search:</h3>
         <select id="topic-select" value={repoSelected} onChange={handleSelectRepo}>

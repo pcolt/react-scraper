@@ -38,7 +38,7 @@ export const UpdateRepos = ({
 
   return (
     <div className='updReposDiv'>
-      <h1>Update repos</h1>
+      <h2>Update repos</h2>
       <h3>Run crawler by topic</h3>
       {topics.map(topic => (
         <button key={topic.value} onClick={() => runCrawlerJob(topic.value)} data-testid={topic.btnRunTestId}>

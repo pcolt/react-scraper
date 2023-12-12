@@ -1,8 +1,8 @@
 .repoCard {
-    margin: 2rem 2rem 2rem 0rem;
+    margin: 2rem;
     padding: 0.5rem;
     /* background-color:rgba(212, 255, 195, 0.603); */
-    background-color: #cbd9e8;
+    background-color: #eaedf2;
     /* box-shadow: 10px 10px; */
     border-radius: 8px;
 }
