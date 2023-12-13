@@ -1,9 +1,9 @@
 import runJobService from '../services/runJob'
 import { useState } from 'react'
 import { topics } from '../services/helpers'
-import { ButtonStyled } from '../styles/buttonStyled'
+import { ButtonStyled } from '../styles/styledComponents'
 import styled from 'styled-components'
-import { colors } from '../styles/global'
+import { colors } from '../styles/styledComponents'
 
 const UpdReposDivStyled = styled.div`
   margin: 2rem;

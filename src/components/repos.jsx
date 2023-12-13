@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { RepoCard } from './repoCard'
 import axios from 'axios'
 import styled from 'styled-components'
-import { ButtonSelectedStyled, ButtonStyled } from '../styles/buttonStyled'
-import { colors } from '../styles/global'
+import { ButtonSelectedStyled, ButtonStyled } from '../styles/styledComponents'
+import { colors } from '../styles/styledComponents'
 
 const DisplayReposDiv = styled.div`
   margin: 2rem;

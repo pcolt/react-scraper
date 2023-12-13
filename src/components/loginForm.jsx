@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Notification } from './notification'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { ButtonStyled } from '../styles/buttonStyled'
-import { colors } from '../styles/global'
+import { ButtonStyled } from '../styles/styledComponents'
+import { colors } from '../styles/styledComponents'
 
 // styled components
 const FormLoginStyled = styled.form`

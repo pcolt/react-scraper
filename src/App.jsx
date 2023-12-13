@@ -5,7 +5,7 @@ import { LoginForm } from './components/loginForm'
 // import Togglable from './components/togglable'
 import Repos from './components/repos'
 import { UpdateRepos } from './components/updateRepos'
-import { colors } from './styles/global'
+import { colors } from './styles/styledComponents'
 import styled from 'styled-components'
 
 const TopNavBarStyled = styled.div`

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ButtonStyled } from '../styles/buttonStyled'
+import { ButtonStyled } from '../styles/styledComponents'
 import styled from 'styled-components'
 import colors from '../styles/colors'
 

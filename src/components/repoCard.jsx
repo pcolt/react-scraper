@@ -1,6 +1,6 @@
 import githublogo from '../assets/github-mark.svg'
 import styled from 'styled-components'
-import { colors } from '../styles/global'
+import { colors } from '../styles/styledComponents'
 
 const RepoCardStyled = styled.div`
   margin: 2rem;
