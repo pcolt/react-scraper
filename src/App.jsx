@@ -5,7 +5,34 @@ import { LoginForm } from './components/loginForm'
 // import Togglable from './components/togglable'
 import Repos from './components/repos'
 import { UpdateRepos } from './components/updateRepos'
-import './App.css'
+import { colors } from './styles/global'
+import styled from 'styled-components'
+
+const TopNavBarStyled = styled.div`
+  background-color: ${colors.primary};
+  overflow: hidden;
+  width: 100%;
+  padding-top: 1rem;
+`
+
+const RouterLinkStyled = styled(Link)`
+  text-decoration: none;
+  padding-left: 1rem;
+  color: ${colors.tertiary};
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+`
+
+const TopNavBarLogoutStyled = styled.a`
+  text-decoration: none;
+  color: ${colors.tertiary};
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+`
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -30,15 +57,17 @@ const App = () => {
 
   return (
     <div>
-      <div className='topNavBar'>
-        <Link className="toolbarLink" to="/">Repos</Link>
-        <Link className="toolbarLink" to="/update">Update Repos</Link>
-        {
-          user ?
-            <b className="toolbarLogin" onClick={logOut}>Log out</b> :
-            <Link className="toolbarLogin" to="/login">Log in</Link>
-        }
-      </div>
+      <TopNavBarStyled>
+        <RouterLinkStyled to="/">Repos</RouterLinkStyled>
+        <RouterLinkStyled to="/update">Update Repos</RouterLinkStyled>
+        <div style={{float: 'right', paddingRight: '1rem'}}>
+          {
+            user ?
+              <TopNavBarLogoutStyled onClick={logOut}>Log out</TopNavBarLogoutStyled> :
+              <RouterLinkStyled to="/login">Log in</RouterLinkStyled>
+          }
+        </div>
+      </TopNavBarStyled>
 
       {
         user ?

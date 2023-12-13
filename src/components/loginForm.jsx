@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { Notification } from './notification'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { ButtonStyled } from '../styles/buttonStyled'
+import { colors } from '../styles/global'
 
 // styled components
 const FormLoginStyled = styled.form`
   margin: 2rem;
   padding: 2rem;
-  background-color: #cbd9e8;
+  background-color: ${colors.secondary};
   border-radius: 8px;
 `
 
@@ -58,7 +60,7 @@ export const LoginForm = ({
           />
         </div>
         <div style={{display: 'block'}}>
-        <label htmlFor="Password">Password</label>
+          <label htmlFor="Password">Password</label>
           <input
             type="password"
             value={password}
@@ -67,7 +69,7 @@ export const LoginForm = ({
           />
         </div>
 
-        <button id="login-button" type="submit">Login</button>
+        <ButtonStyled id="login-button" type="submit">Login</ButtonStyled>
 
         <Notification message={errorMessage} />
 

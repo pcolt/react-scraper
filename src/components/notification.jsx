@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { colors } from '../styles/global'
 
 // styled component
 const NotifiyErrStyled = styled.div`
   font-weight: 500;
   padding: 1rem;
-  color: #eaedf2;
+  color: ${colors.tertiary};
   background-color: rgb(228, 114, 114);
   border-radius: 8px;
 `

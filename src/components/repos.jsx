@@ -2,8 +2,16 @@ import {compareByName, compareByStars, topics } from '../services/helpers'
 import { useEffect, useState } from 'react'
 import { RepoCard } from './repoCard'
 import axios from 'axios'
-import './repos.css'
+import styled from 'styled-components'
+import { ButtonSelectedStyled, ButtonStyled } from '../styles/buttonStyled'
+import { colors } from '../styles/global'
 
+const DisplayReposDiv = styled.div`
+  margin: 2rem;
+  padding: 2rem;
+  background-color: ${colors.secondary};
+  border-radius: 8px;
+`
 
 const Repos = () => {
   const [orderType, setOrderType] = useState(null)
@@ -56,7 +64,7 @@ const Repos = () => {
   }, [repoSelected])
 
   return (
-    <div className='displayReposDiv'>
+    <DisplayReposDiv>
       <h2>Repos</h2>
       <div>
         <h3>Select a topic to search:</h3>
@@ -69,19 +77,23 @@ const Repos = () => {
       </div>
       <div>
         <h3>Order by</h3>
-        <button className={(orderType === 'name')? 'button-selected' : ''} onClick={handleClickOrderByName}>
-          {(orderType === 'name') ? 'ordered' : 'order'} by Name
-        </button>
-        <button className={(orderType === 'stars')? 'button-selected' : ''} onClick={handleClickOrderByStars}>
-          {(orderType === 'stars') ? 'ordered' : 'order'} by Stars
-        </button>
+        {
+          orderType === 'name' ?
+            <ButtonSelectedStyled onClick={handleClickOrderByName}>orderd by Name</ButtonSelectedStyled> :
+            <ButtonStyled onClick={handleClickOrderByName}>order by Name</ButtonStyled>
+        }
+        {
+          orderType === 'stars' ?
+            <ButtonSelectedStyled onClick={handleClickOrderByStars}>orderd by Stars</ButtonSelectedStyled> :
+            <ButtonStyled onClick={handleClickOrderByStars}>order by Stars</ButtonStyled>
+        }
       </div>
       <div>
         {reposDisplayed.map(repo =>
           <RepoCard key={repo.id} repo={repo} />
         )}
       </div>
-    </div>
+    </DisplayReposDiv>
   )
 }
 

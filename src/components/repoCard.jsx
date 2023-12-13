@@ -1,13 +1,22 @@
-import './repoCard.css'
 import githublogo from '../assets/github-mark.svg'
+import styled from 'styled-components'
+import { colors } from '../styles/global'
+
+const RepoCardStyled = styled.div`
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: ${colors.tertiary};
+  border-radius: 8px;
+`
+
 export const RepoCard = ({ repo }) => {
 
   return (
-    <div className="repoCard">
+    <RepoCardStyled>
       <h2>{repo.repoName}</h2>
       <p data-testid='repoCardDescription'>{repo.description}</p>
-      <a href={repo.url}><img className="logo" src={githublogo} />GitHub</a>
+      <a href={repo.url}><img style={{height: '1rem', paddingRight: '0.1rem'}} src={githublogo} />GitHub</a>
       <p>Stars &#11088; {repo.stars}</p>
-    </div>
+    </RepoCardStyled>
   )
 }

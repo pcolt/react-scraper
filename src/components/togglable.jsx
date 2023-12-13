@@ -1,5 +1,14 @@
 import { useState } from 'react'
-import './tooglable.css'
+import { ButtonStyled } from '../styles/buttonStyled'
+import styled from 'styled-components'
+import colors from '../styles/colors'
+
+const TogglableDivStyled = styled.div`
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: ${colors.secondary};
+  border-radius: 8px;
+`
 
 const Togglable = (props) => {
   const [visible, setVisible] = useState(false)
@@ -12,15 +21,15 @@ const Togglable = (props) => {
   }
 
   return (
-    <div className='tooglable'>
+    <TogglableDivStyled>
       <div style={hideWhenVisible}>
-        <button onClick={toggleVisibility}>{props.buttonShowLabel}</button>
+        <ButtonStyled onClick={toggleVisibility}>{props.buttonShowLabel}</ButtonStyled>
       </div>
       <div style={showWhenVisible} data-testid='togglableContent'>
-        <button onClick={toggleVisibility}>{props.buttonHideLabel}</button>
+        <ButtonStyled onClick={toggleVisibility}>{props.buttonHideLabel}</ButtonStyled>
         {props.children}
       </div>
-    </div>
+    </TogglableDivStyled>
   )
 }
 
