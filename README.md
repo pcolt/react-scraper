@@ -1,6 +1,6 @@
 ## React-Express app showing results from backend project playwright-scraper
 
-The app show a list of repositories about **climatechange** topic and it is up on-line at https://react-node-scraper.fly.dev/.   
+The app show a list of repositories about **climatechange** topic and it is visible at https://react-node-scraper.fly.dev/.   
    
 The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.
 
@@ -8,6 +8,7 @@ The data is scraped with the Nodejs application https://github.com/pcolt/playwri
 <div >
 <img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" height="350"/>
 <img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" height="350"/>
+<img src="/public/react-express-3.png" alt="App screenshot 2" title="App screenshot 1" height="350"/>
 </div>
 <!-- ![App screenshot](/public/react-express-2.png "App screenshot") -->
 
@@ -113,4 +114,4 @@ Currently, two official plugins are available:
 
 ## References
 
-The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/), [part 4](https://fullstackopen.com/en/part4/), [part 5](https://fullstackopen.com/en/part5/), [part 6](https://fullstackopen.com/en/part6/).
+The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/), [part 4](https://fullstackopen.com/en/part4/), [part 5](https://fullstackopen.com/en/part5/), [part 6](https://fullstackopen.com/en/part6/), [part 7](https://fullstackopen.com/en/part7/).
