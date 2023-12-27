@@ -47,7 +47,7 @@ Build frontend React via Vite:
 `npm run build`
 
 Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
-`npm run build:full`
+`npm run deploy:full`
 
 Only deploy (does not re-build frontend) on Fly.io:   
 `npm run deploy`
