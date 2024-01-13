@@ -1,6 +1,6 @@
 ## React-Express app showing results from backend project playwright-scraper
 
-The app show a list of repositories about **climatechange** topic and it is visible at https://react-node-scraper.fly.dev/.   
+A single page app that shows a list of the most followed repositories about **climatechange** and other topics. Visible at https://react-node-scraper.fly.dev/.   
    
 The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.
 
