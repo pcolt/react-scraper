@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     font-weight: 500;
-    color: ${colors.tertiary};
+    color: ${colors.primary};
   }
   a:hover {
     color: ${colors.secondary};
