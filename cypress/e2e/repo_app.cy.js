@@ -17,11 +17,11 @@ describe('Test repos app part', () => {
 describe('Test login app part', () => {
   beforeEach(function() {
     cy.request('POST', `${Cypress.env('backendUrl')}/api/testing/resetusers`)
-    cy.visit('/')
+    cy.visit('/login')
   })
 
   it('A user can login', function () {
-    cy.contains('Show login').click()
+    cy.contains('Login')
     // cy.get('input:first').type('root')
     cy.get('input[name="Username"]').type('root')
     // cy.get('input:last').type('sekret')
@@ -32,11 +32,11 @@ describe('Test login app part', () => {
   })
 
   it('A user can not login with wrong password', function () {
-    cy.contains('Show login').click()
+    // cy.contains('Show login').click()
     cy.get('input[name="Username"]').type('root')
     cy.get('input[name="Password"]').type('wrong')
     cy.get('#login-button').click()
-    cy.get('.error').should('contain','Wrong credentials')
+    cy.get('#login-error-message').should('contain','Wrong credentials')
     cy.get('html').should('not.contain', 'root is logged')
   })
 })
@@ -47,9 +47,11 @@ describe('When user is logged in', function() {
       username: 'root',
       password: 'sekret'
     }).then(response => {
+      console.log('response', response)
       localStorage.setItem('loggedAppUser', JSON.stringify(response.body))
-      cy.visit('/')
     })
+    cy.visit('/update')
+    cy.get('#link-update-repos').click()
   })
 
   it('a new message for a new scraping job can sent', function() {

@@ -59,7 +59,7 @@ const App = () => {
     <div>
       <TopNavBarStyled>
         <RouterLinkStyled to="/">Repos</RouterLinkStyled>
-        <RouterLinkStyled to="/update">Update Repos</RouterLinkStyled>
+        <RouterLinkStyled to="/update" id="link-update-repos">Update Repos</RouterLinkStyled>
         <div style={{float: 'right', paddingRight: '1rem'}}>
           {
             user ?

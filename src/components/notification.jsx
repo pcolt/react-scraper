@@ -16,7 +16,7 @@ export const Notification = ({ message }) => {
   }
 
   return (
-    <NotifiyErrStyled>
+    <NotifiyErrStyled id="login-error-message">
       {message}
     </NotifiyErrStyled>
   )
