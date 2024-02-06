@@ -1,10 +1,10 @@
-// import express from 'express'
-// const reposRouter = express.Router()
-// import  { RepoCrawlerModel, RepoClimatechangeModel } from '../models/repo_model.js'
-// import logger from '../utils/logger.js'
-const reposRouter = require('express').Router()
-const  { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model.js')
-const logger = require('../utils/logger')
+import express from 'express'
+const reposRouter = express.Router()
+import  { RepoCrawlerModel, RepoClimatechangeModel } from '../models/repo_model.js'
+import logger from '../utils/logger'
+// const reposRouter = require('express').Router()
+// const  { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model.js')
+// const logger = require('../utils/logger')
 
 reposRouter.get('/crawler', (request, response) => {              // backend root to retrieve crawler repos from mongoDB
   RepoCrawlerModel.find({}).then(repos => {
@@ -21,4 +21,5 @@ reposRouter.get('/climatechange', (request, response) => {        // backend roo
 })
 
 // export { reposRouter }
-module.exports = reposRouter
+// module.exports = reposRouter
+export default reposRouter

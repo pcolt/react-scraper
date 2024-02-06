@@ -1,14 +1,16 @@
-const mongoose = require('mongoose')
-const {describe, expect, test} = require('@jest/globals')   // explicit import actaully required only for typescript
-const supertest = require('supertest')
-const app = require('../app')
-const helper = require('./test_helper')
-const jwt = require('jsonwebtoken')
+import { connection } from 'mongoose'
+import { describe, expect, test } from '@jest/globals'   // explicit import actaully required only for typescript
+import supertest from 'supertest'
+import app from '../app'
+import { mockClimatechangeRepos, mockCrawlerRepos, usersInDb } from './test_helper'
+import { Secret, verify } from 'jsonwebtoken'
 
 const api = supertest(app)
 
 describe('interface tests on /api/repos route', () => {
   // Applies only to tests in this describe block
+  const api = supertest(app); // Create the api object using supertest
+
   beforeEach(async () => {
     await api.post('/api/testing/resetrepos')
     console.log('Repos data in database re-initialized')
@@ -20,7 +22,7 @@ describe('interface tests on /api/repos route', () => {
       .expect('Content-Type', /application\/json/)
       .then(response => {
         // console.log('/api/repos/climatechange response.body', response.body)
-        expect(response.body).toHaveLength(helper.mockClimatechangeRepos.length)
+        expect(response.body).toHaveLength(mockClimatechangeRepos.length)
       })
   })
   test('test GET api/repos/crawler', async () => {
@@ -30,7 +32,7 @@ describe('interface tests on /api/repos route', () => {
       .expect('Content-Type', /application\/json/)
       .then(response => {
         // console.log('api/repos/crawler response.body', response.body)
-        expect(response.body).toHaveLength(helper.mockCrawlerRepos.length)
+        expect(response.body).toHaveLength(mockCrawlerRepos.length)
       })
   })
 })
@@ -42,7 +44,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
   })
 
   test('Creation succeeds with a new username', async () => {
-    const usersAtStart = await helper.usersInDb()
+    const usersAtStart = await usersInDb()
 
     const newUser = {                                                 // try to add a new user
       username: 'mluukkai',
@@ -56,7 +58,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
       .expect(201)
       .expect('Content-Type', /application\/json/)
 
-    const usersAtEnd = await helper.usersInDb()                       // check one user was succesfully added
+    const usersAtEnd = await usersInDb()                       // check one user was succesfully added
     expect(usersAtEnd).toHaveLength(usersAtStart.length + 1)
 
     const usernames = usersAtEnd.map(u => u.username)                 // check usernames contain the new inserted user
@@ -64,7 +66,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
   })
 
   test('Creation fails if username is duplicate already in db', async () => {
-    const usersAtStart = await helper.usersInDb()
+    const usersAtStart = await usersInDb()
 
     const newUser = {                                                 // try to add a new user with username already in the db
       username: 'root',
@@ -80,7 +82,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
 
     expect(result.body.error).toContain('duplicate key error collection') // check response body
 
-    const usersAtEnd = await helper.usersInDb()                         // check no user was added
+    const usersAtEnd = await usersInDb()                         // check no user was added
     expect(usersAtEnd).toEqual(usersAtStart)
   })
 
@@ -97,7 +99,13 @@ describe('Interface tests on api/users and api/login routes. Collection has init
       .expect('Content-Type', /application\/json/)
     expect(result.body.token).toBeDefined
 
-    const decodedToken = jwt.verify(result.body.token, process.env.SECRET)
+    if (!process.env.SECRET) {
+      throw new Error('No secret defined in .env')
+    }
+    const decodedToken = verify(result.body.token, process.env.SECRET);
+    if (typeof decodedToken === 'string' || decodedToken instanceof String) {
+      throw new Error('Token verification failed')
+    }
     expect(decodedToken.username).toBe('root')
     expect(decodedToken.id).toBeDefined
   })
@@ -118,5 +126,5 @@ describe('Interface tests on api/users and api/login routes. Collection has init
 })
 
 afterAll(async () => {
-  await mongoose.connection.close()
+  await connection.close()
 })

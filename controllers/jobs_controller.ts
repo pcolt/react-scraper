@@ -1,8 +1,10 @@
-const jobsRouter = require('express').Router()
-const logger = require('../utils/logger')
-const { verifyRequestToken } = require('../utils/verify_token')
+// const jobsRouter = require('express').Router()
+import express from 'express'
+const jobsRouter = express.Router()
+import logger from '../utils/logger'
+import { verifyRequestToken } from '../utils/verify_token'
 // const UserModel = require('../models/user_model')
-const redisClient = require('../utils/redis')
+import redisClient from '../utils/redis'
 
 /**
  * Send a job to the Redis queue after verifying user token
@@ -19,6 +21,7 @@ jobsRouter.post('/', async (request, response, next) => {
     logger.info('client.isOpen():', redisClient.isOpen)
 
     // Publish an event to Redis
+    console.log(`publishing to runScraper_${process.env.NODE_ENV}`)
     await redisClient.publish(`runScraper_${process.env.NODE_ENV}`, JSON.stringify(request.body))
 
     // await redisClient.set('bike:1', 'Process 134');
@@ -36,4 +39,5 @@ jobsRouter.post('/', async (request, response, next) => {
   }
 })
 
-module.exports = jobsRouter
+// module.exports = jobsRouter
+export default jobsRouter

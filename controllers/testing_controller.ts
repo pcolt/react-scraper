@@ -1,8 +1,8 @@
 const testingRouter = require('express').Router()
-const UserModel = require('../models/user_model')
-const { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model')
-const helper = require('../tests/test_helper')
-const bcrypt = require('bcrypt')
+import UserModel from '../models/user_model'
+import { RepoCrawlerModel, RepoClimatechangeModel } from '../models/repo_model'
+import helper from '../tests/test_helper'
+import bcrypt from 'bcrypt'
 // const logger = require('../utils/logger')
 
 testingRouter.post('/resetrepos', async (request, response) => {   // reset repos data in database
@@ -27,4 +27,5 @@ testingRouter.post('/resetusers', async (request, response) => {   // reset user
   response.status(204).end()
 })
 
-module.exports = testingRouter
+// module.exports = testingRouter
+export default testingRouter

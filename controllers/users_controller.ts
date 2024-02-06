@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt')
+import bcrypt from 'bcrypt'
 const usersRouter = require('express').Router()
-const UserModel = require('../models/user_model')
-const logger = require('../utils/logger')
+import UserModel from '../models/user_model'
+import logger from '../utils/logger'
 
 usersRouter.post('/', async (request, response) => {
   // console.log('request.body:', request.body)
@@ -34,5 +34,5 @@ usersRouter.get('/', (request, response) => {        // backend root to retrieve
   })
 })
 
-// export { usersRouter }
-module.exports = usersRouter
+export default usersRouter
+// module.exports = usersRouter

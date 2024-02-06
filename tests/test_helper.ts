@@ -1,4 +1,4 @@
-const UserModel = require('../models/user_model')
+import UserModel from '../models/user_model'
 
 const mockClimatechangeRepos = [
   {
@@ -91,4 +91,6 @@ const usersInDb = async () => {
   return users.map(user => user.toJSON())
 }
 
-module.exports = { mockClimatechangeRepos, mockCrawlerRepos, usersInDb }
+// module.exports = { mockClimatechangeRepos, mockCrawlerRepos, usersInDb }
+export { mockClimatechangeRepos, mockCrawlerRepos, usersInDb }
+export default { mockClimatechangeRepos, mockCrawlerRepos, usersInDb }

@@ -5,11 +5,14 @@
       "displayName": "backend",
       "testEnvironment": "node",
       "testMatch": [
-        "<rootDir>/tests/**/*.test.js"
+        "<rootDir>/tests/**/*-test.ts"
       ],
       "coveragePathIgnorePatterns": [
         "<rootDir>/node_modules/"
-      ]
+      ],
+      "transform": {
+        "^.+\\.(ts|tsx)$": "ts-jest"
+      }
     },
     {
       "displayName": "frontend",

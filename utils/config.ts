@@ -1,6 +1,6 @@
-// import 'dotenv/config'
+import 'dotenv/config'
 // import logger from './logger.js'
-require('dotenv').config()
+// require('dotenv').config()
 // const logger = require('./logger')
 
 // const MONGO_URL = process.env.MONGO_URL
@@ -13,5 +13,5 @@ const PORT = process.env.PORT
 // logger.info('db url: ', MONGO_URL)
 // logger.info('server port: ', PORT)
 
-// export default { MONGO_URL, PORT }
-module.exports = { MONGO_URL, PORT }
+export default { MONGO_URL, PORT }
+// module.exports = { MONGO_URL, PORT }

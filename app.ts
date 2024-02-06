@@ -1,13 +1,14 @@
-const config = require('./utils/config')
-const express = require('express')
-const cors = require('cors')
-const logger = require('./utils/logger')
-const reposRouter = require('./controllers/repo_controller')
-const usersRouter = require('./controllers/users_controller')
-const loginRouter = require('./controllers/login_controller')
-const jobsRouter = require('./controllers/jobs_controller')
-const middleware = require('./utils/middleware')
-const mongoose = require('mongoose')
+import config from './utils/config'
+import express from 'express'
+import cors from 'cors'
+import logger from './utils/logger'
+import reposRouter from './controllers/repo_controller'
+import usersRouter from './controllers/users_controller'
+import loginRouter from './controllers/login_controller'
+import jobsRouter from './controllers/jobs_controller'
+import testingRouter from './controllers/testing_controller'
+import middleware from './utils/middleware'
+import mongoose from 'mongoose'
 
 // const mongo_url = process.env.MONGO_URL
 // // `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority`
@@ -35,7 +36,6 @@ app.use('/api/login', loginRouter)
 app.use('/api/jobs', jobsRouter)
 
 if (process.env.NODE_ENV === 'test') {        // add testing route only when running tests
-  const testingRouter = require('./controllers/testing_controller')
   app.use('/api/testing', testingRouter)
 }
 
@@ -43,5 +43,5 @@ app.use(middleware.unknownEndpoint)
 
 app.use(middleware.errorHandler)
 
-// export default app
-module.exports = app
+export default app
+// module.exports = app
