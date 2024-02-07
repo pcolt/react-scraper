@@ -29,10 +29,11 @@
     }
   ],
   "collectCoverageFrom": [
-    "**/*.{js,jsx}",
+    "**/*.{ts,jsx}",
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/tests/**",
-    "!vite.config.js"
+    "!vite.config.js",
+    "!built_backend/**"
   ]
 }

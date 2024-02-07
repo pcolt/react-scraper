@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
 // const logger = require('./logger')
 
 const getTokenFrom = request => {
@@ -25,4 +25,4 @@ const verifyRequestToken = request => {
   // }
 }
 
-module.exports = { verifyRequestToken }
+export { verifyRequestToken }
