@@ -1,7 +1,7 @@
 // import mongoose from 'mongoose'
 // import logger from '../utils/logger.js'
 // import config from '../utils/config.js'
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 // const logger = require('../utils/logger')
 // const config = require('../utils/config')
 
@@ -27,5 +27,5 @@ repoMongooseSchema.set('toJSON', {
 const RepoCrawlerModel = mongoose.model('Crawler', repoMongooseSchema)
 const RepoClimatechangeModel = mongoose.model('Climatechange', repoMongooseSchema)
 
-// export { RepoCrawlerModel, RepoClimatechangeModel }
-module.exports = { RepoCrawlerModel, RepoClimatechangeModel }
+export { RepoCrawlerModel, RepoClimatechangeModel }
+// module.exports = { RepoCrawlerModel, RepoClimatechangeModel }

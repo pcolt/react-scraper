@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 // const logger = require('../utils/logger')
 // const config = require('../utils/config')
 
@@ -22,4 +22,5 @@ userSchema.set('toJSON', {
 
 const UserModel = mongoose.model('User', userSchema)
 
-module.exports = UserModel
+// module.exports = UserModel
+export default UserModel

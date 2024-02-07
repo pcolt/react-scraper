@@ -1,6 +1,6 @@
 import express from 'express'
 const reposRouter = express.Router()
-import  { RepoCrawlerModel, RepoClimatechangeModel } from '../models/repo_model.js'
+import  { RepoCrawlerModel, RepoClimatechangeModel } from '../models/repo_model'
 import logger from '../utils/logger'
 // const reposRouter = require('express').Router()
 // const  { RepoCrawlerModel, RepoClimatechangeModel } = require('../models/repo_model.js')

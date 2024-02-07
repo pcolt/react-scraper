@@ -7,8 +7,12 @@
       "testMatch": [
         "<rootDir>/tests/**/*-test.ts"
       ],
+      "collectCoverageFrom": [
+        "<rootDir>/**/*.ts"
+      ],
       "coveragePathIgnorePatterns": [
-        "<rootDir>/node_modules/"
+        "<rootDir>/node_modules/",
+        "<rootDir>/src/"
       ],
       "transform": {
         "^.+\\.(ts|tsx)$": "ts-jest"
@@ -20,8 +24,16 @@
       "testMatch": [
         "<rootDir>/src/**/*.test.js"
       ],
+      "collectCoverageFrom": [
+        "<rootDir>/src/**/*.jsx"
+      ],
       "coveragePathIgnorePatterns": [
-        "<rootDir>/node_modules/"
+        "<rootDir>/node_modules/",
+        "<rootDir>/controllers/",
+        "<rootDir>/utils/",
+        "<rootDir>/index.ts",
+        "<rootDir>/models/",
+        "app.ts"
       ],
       "moduleNameMapper": {
         "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
@@ -29,11 +41,15 @@
     }
   ],
   "collectCoverageFrom": [
-    "**/*.{ts,jsx}",
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/tests/**",
     "!vite.config.js",
-    "!built_backend/**"
+    "!built_backend/**",
+    "!coverage/**",
+    "!.eslintrc.cjs",
+    "!cypress.config.js",
+    "!cypress/**",
+    "!dist/**"
   ]
 }
