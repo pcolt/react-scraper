@@ -22,7 +22,7 @@ Start frontend in dev:
 Start backend in development mode (auto-starts on change):   
 `npm run backend:dev`
 
-##### Lint + Tests
+#### Lint + Tests
 
 Run eslint over backend and frontend JS files:
 `npm run lint`
@@ -43,7 +43,7 @@ Run e2e tests with cypress
 launch frontend with `npm run vite`, and backend in testing mode `npm run backend:test`, finally launch cypress `npm run cypress:open`   
 or run cypress from command line `npm test:e2e`
 
-##### Build + Deploy
+#### Build + Deploy
 
 Build frontend React via Vite:   
 `npm run build`
@@ -60,7 +60,22 @@ Scale down Fly.io deployment to one machine:
 Watch logs of production machine on Fly.io:
 `fly logs`
 
-##### VSCode REST Client
+#### Docker 
+
+Docker image is used by Fly.io to deploy the app to the internet.  
+It can be also used to run and debug the Docker image locally.  
+
+Build Docker image
+`docker build . -t react-scraper`
+
+Run Docker image
+`docker run --env MONGO_URL='MONGO_URL_in_.ENV_FILE' --env REDIS_URL='REDIS_URL_in_.ENV_FILE' --env SECRET='SECRET_in_.ENV_FILE' --env PORT=3000 -p 3000:3000 react-scraper`
+
+Docker list of all containers `docker ps -a`  
+Restart a container `docker restart [container-id]`  
+Follow container logs `docker logs --follow [container-id]`
+
+#### VSCode REST Client
 
 HTTP requests to the express endpoints are in `requests` folder (Installation of VSCode plugin REST Client is required).
 To change environment variables ([.vscode/settings.json](.vscode/settings.json)) from 'local' to 'production' press:
@@ -68,10 +83,10 @@ To change environment variables ([.vscode/settings.json](.vscode/settings.json))
 
 ## Install
 
-##### Install dependencies
+### Install dependencies
 Clone the repository in your local folder and run `npm install`
 
-##### Configure secret/environment variables
+### Configure secret/environment variables
 - In the root folder create `.env` file with following keys:   
 ```
 MONGO_URL = 'mongodb+srv://fullstack:MONGODB_FULLSTACK_USER_PASSWORD@cluster0.ck2n2.mongodb.net/repos?retryWrites=true&w=majority'

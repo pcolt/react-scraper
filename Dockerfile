@@ -27,8 +27,11 @@ RUN npm ci --include=dev
 # Copy application code
 COPY --link . .
 
-# Build application
+# Build application frontend
 RUN npm run build
+
+# Build application backend
+RUN npm run backend:build
 
 # Remove development dependencies
 RUN npm prune --omit=dev
@@ -42,4 +45,4 @@ COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "node", "index.js" ]
+CMD [ "node", "built_backend/index.js" ]
