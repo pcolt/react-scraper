@@ -17,5 +17,5 @@
     // "noImplicitReturns": true,                            /* Enable error reporting for codepaths that do not explicitly return in a function. */
     // "noFallthroughCasesInSwitch": true,                   /* Enable error reporting for fallthrough cases in switch statements. */
   },
-  "include": ["index.ts", "app.ts", "./controllers/**/*", "./models/**/*", "./utils/**/*"],
+  "include": ["index.ts", "app.ts", "./controllers/**/*", "./models/**/*", "./utils/**/*", "./tests/**/*"]
 }

@@ -29,3 +29,6 @@ dist-ssr
 
 # Jest coverage
 coverage
+
+# Compiled files by Typescript
+built_backend
