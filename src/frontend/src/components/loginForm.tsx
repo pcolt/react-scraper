@@ -1,10 +1,11 @@
-import loginService from '../services/login'
 import { useState } from 'react'
 import { Notification } from './notification'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { ButtonStyled } from '../styles/styledComponents'
 import { colors } from '../styles/styledComponents'
+
+import loginService from '../services/login' // Import the LoginService type from the login module
 
 // styled components
 const FormLoginStyled = styled.form`

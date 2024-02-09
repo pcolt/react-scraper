@@ -27,11 +27,8 @@ RUN npm ci --include=dev
 # Copy application code
 COPY --link . .
 
-# Build application frontend
+# Build application frontend and backend
 RUN npm run build
-
-# Build application backend
-RUN npm run backend:build
 
 # Remove development dependencies
 RUN npm prune --omit=dev

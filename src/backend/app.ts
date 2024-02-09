@@ -15,6 +15,10 @@ import mongoose from 'mongoose'
 
 mongoose.set('strictQuery',false)     // connecting to mongodb
 logger.info('connecting to ', config.MONGO_URL)
+if (config.MONGO_URL === undefined) {
+  logger.error('no mongo url found')
+  process.exit(1)
+}
 mongoose.connect(config.MONGO_URL)
   .then(() => {
     logger.info('connected to MongoDB')
@@ -24,7 +28,7 @@ mongoose.connect(config.MONGO_URL)
   })
 
 const app = express()
-app.use(express.static('dist'))     // when http GET request to main root or index.html it returns the static files in /dist build with vite
+app.use(express.static('src/frontend/dist'))     // when http GET request to main root or index.html it returns the static files in /dist build with vite
 app.use(cors())                     // allow cors
 app.use(express.json())             // activate the json-parser and implement an initial handler for dealing with the HTTP POST requests
 

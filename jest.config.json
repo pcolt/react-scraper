@@ -5,14 +5,14 @@
       "displayName": "backend",
       "testEnvironment": "node",
       "testMatch": [
-        "<rootDir>/tests/**/*-test.ts"
+        "<rootDir>/src/backend/tests/**/*-test.ts"
       ],
       "collectCoverageFrom": [
-        "<rootDir>/**/*.ts"
+        "<rootDir>/src/backend/**/*.ts"
       ],
       "coveragePathIgnorePatterns": [
         "<rootDir>/node_modules/",
-        "<rootDir>/src/"
+        "<rootDir>/src/frontend/"
       ],
       "transform": {
         "^.+\\.(ts|tsx)$": "ts-jest"
@@ -22,18 +22,14 @@
       "displayName": "frontend",
       "testEnvironment": "jsdom",
       "testMatch": [
-        "<rootDir>/src/**/*.test.js"
+        "<rootDir>/src/frontend/src/**/*.test.js"
       ],
       "collectCoverageFrom": [
-        "<rootDir>/src/**/*.jsx"
+        "<rootDir>/src/frontend/src/**/*.tsx"
       ],
       "coveragePathIgnorePatterns": [
         "<rootDir>/node_modules/",
-        "<rootDir>/controllers/",
-        "<rootDir>/utils/",
-        "<rootDir>/index.ts",
-        "<rootDir>/models/",
-        "app.ts"
+        "<rootDir>/src/backend/"
       ],
       "moduleNameMapper": {
         "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
