@@ -17,7 +17,7 @@ A on-line version is visible [here](https://react-node-scraper.fly.dev/).
 ## Usage
 
 Start frontend in dev:   
-`npm run vite:dev`
+`npm run front:dev`
 
 Start backend in development mode (auto-starts on change):   
 `npm run backend:dev`
