@@ -9,13 +9,21 @@ const RepoCardStyled = styled.div`
   border-radius: 8px;
 `
 
+const githubLogoStyle = {
+  height: '1rem', 
+  paddingRight: '0.1rem'
+}
+
 export const RepoCard = ({ repo }) => {
 
   return (
     <RepoCardStyled>
       <h2>{repo.repoName}</h2>
       <p data-testid='repoCardDescription'>{repo.description}</p>
-      <a href={repo.url}><img style={{height: '1rem', paddingRight: '0.1rem'}} src={githublogo} />GitHub</a>
+      <a href={repo.url}>
+        <img style={{height: '1rem', paddingRight: '0.1rem'}} src={githublogo} />
+        GitHub
+      </a>
       <p>Stars &#11088; {repo.stars}</p>
     </RepoCardStyled>
   )

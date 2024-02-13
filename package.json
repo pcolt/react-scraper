@@ -6,8 +6,11 @@
     "node": ">=20.3.1"
   },
   "scripts": {
-    "build": "tsc --build --verbose",
-    "build:backend": "tsc --build --verbose --project ./backend",
+    "front:dev": "cd src/frontend && npm run dev",
+    "front:preview": "cd src/frontend && npm run preview",
+    "build:front": "cd src/frontend && tsc && npm run build",
+    "build": "tsc --build --verbose && cd src/frontend && npm run build",
+    "build:back": "tsc --build --verbose --project ./backend",
     "backend:start": "NODE_ENV=development node built_backend/index.js",
     "backend:dev": "NODE_ENV=development nodemon --exec node --loader ts-node/esm ./built_backend/index.js",
     "backend:test": "NODE_ENV=test nodemon --exec node --loader ts-node/esm ./built_backend/index.js",
@@ -52,7 +55,6 @@
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "@vitejs/plugin-react": "^4.0.3",
     "cypress": "^13.6.0",
     "eslint": "^8.52.0",
     "eslint-plugin-cypress": "^2.15.1",
@@ -66,7 +68,6 @@
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.3.3",
-    "vite": "^4.4.5"
+    "typescript": "^5.3.3"
   }
 }
