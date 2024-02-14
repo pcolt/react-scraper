@@ -12,6 +12,8 @@ node_modules
 src/frontend/node_modules
 src/backend/node_modules
 
+# dist
+src/frontend/dist
 dist
 dist-ssr
 *.local
@@ -34,5 +36,6 @@ dist-ssr
 # Jest coverage
 coverage
 
-# Compiled files by Typescript
+# Typescript
 built_backend
+*.tsbuildinfo

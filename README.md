@@ -22,7 +22,7 @@ Start frontend in dev:
 Start backend in development mode (auto-starts on change):   
 `npm run back:dev`
 
-#### Lint + Tests
+### Lint + Tests
 
 Run eslint over backend and frontend JS files:
 `npm run lint`
@@ -43,10 +43,16 @@ Run e2e tests with cypress
 launch frontend with `npm run vite`, and backend in testing mode `npm run back:test`, finally launch cypress `npm run cypress:open`   
 or run cypress from command line `npm test:e2e`
 
-#### Build + Deploy
+### Build + Deploy
 
-Build frontend React via Vite:   
-`npm run build`
+Build frontend React via Vite and tsc:   
+`npm run build:front`
+
+Compile backend Typescript code:  
+`npm run build:back`  
+
+Build the entire app:  
+`npm run build`  
 
 Build frontend and deploy whole app on Fly.io and watch at https://react-node-scraper.fly.dev/:   
 `npm run deploy:full`
@@ -60,7 +66,7 @@ Scale down Fly.io deployment to one machine:
 Watch logs of production machine on Fly.io:
 `fly logs`
 
-#### Docker 
+### Docker 
 
 Docker image is used by Fly.io to deploy the app to the internet.  
 It can be also used to run and debug the Docker image locally.  
@@ -75,7 +81,7 @@ Docker list of all containers `docker ps -a`
 Restart a container `docker restart [container-id]`  
 Follow container logs `docker logs --follow [container-id]`
 
-#### VSCode REST Client
+### VSCode REST Client
 
 HTTP requests to the express endpoints are in `requests` folder (Installation of VSCode plugin REST Client is required).
 To change environment variables ([.vscode/settings.json](.vscode/settings.json)) from 'local' to 'production' press:

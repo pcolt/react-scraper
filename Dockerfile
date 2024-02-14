@@ -27,6 +27,9 @@ RUN npm ci --include=dev
 # Copy application code
 COPY --link . .
 
+# Install node modules for frontend
+RUN cd src/frontend && npm ci --include=dev
+
 # Build application frontend and backend
 RUN npm run build
 
