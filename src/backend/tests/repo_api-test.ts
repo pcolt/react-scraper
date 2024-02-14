@@ -9,7 +9,7 @@ const api = supertest(app)
 
 describe('interface tests on /api/repos route', () => {
   // Applies only to tests in this describe block
-  const api = supertest(app); // Create the api object using supertest
+  const api = supertest(app) // Create the api object using supertest
 
   beforeEach(async () => {
     await api.post('/api/testing/resetrepos')
@@ -102,7 +102,7 @@ describe('Interface tests on api/users and api/login routes. Collection has init
     if (!process.env.SECRET) {
       throw new Error('No secret defined in .env')
     }
-    const decodedToken = verify(result.body.token, process.env.SECRET);
+    const decodedToken = verify(result.body.token, process.env.SECRET)
     if (typeof decodedToken === 'string' || decodedToken instanceof String) {
       throw new Error('Token verification failed')
     }

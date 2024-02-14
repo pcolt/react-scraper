@@ -22,7 +22,7 @@
       "displayName": "frontend",
       "testEnvironment": "jsdom",
       "testMatch": [
-        "<rootDir>/src/frontend/src/**/*.test.js"
+        "<rootDir>/src/frontend/src/**/*.test.tsx"
       ],
       "collectCoverageFrom": [
         "<rootDir>/src/frontend/src/**/*.tsx"
@@ -32,7 +32,10 @@
         "<rootDir>/src/backend/"
       ],
       "moduleNameMapper": {
-        "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
+        "\\.(css|less|svg)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+      },
+      "transform": {
+        "^.+\\.tsx?$": "ts-jest"
       }
     }
   ],

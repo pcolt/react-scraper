@@ -10,7 +10,7 @@ const RepoCardStyled = styled.div`
 `
 
 const githubLogoStyle = {
-  height: '1rem', 
+  height: '1rem',
   paddingRight: '0.1rem'
 }
 

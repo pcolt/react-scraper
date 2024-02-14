@@ -3,7 +3,8 @@
     "rootDir": ".",
     "outDir": "../dist/",
     "composite": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "esModuleInterop": true,                              /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
   },
   "files": [],
   "references": [
