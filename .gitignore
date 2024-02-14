@@ -39,3 +39,6 @@ coverage
 # Typescript
 built_backend
 *.tsbuildinfo
+
+# Cypress
+cypress/screenshots
