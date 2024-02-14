@@ -1,7 +1,7 @@
 // import app from './app.js'
-import config from './utils/config.js'
-import logger from './utils/logger.js'
-import app from './app.js'
+import config from './utils/config'
+import logger from './utils/logger'
+import app from './app'
 // const config = require('./utils/config.js')
 // const logger = require('./utils/logger.js')
 
