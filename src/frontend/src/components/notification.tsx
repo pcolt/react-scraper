@@ -10,7 +10,7 @@ const NotifiyErrStyled = styled.div`
   border-radius: 8px;
 `
 
-export const Notification = ({ message }) => {
+export const Notification = ({ message } : {message: string | null}) => {
   if (message === null) {
     return null
   }

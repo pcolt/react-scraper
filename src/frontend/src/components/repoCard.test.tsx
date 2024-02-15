@@ -5,10 +5,11 @@ import { RepoCard } from './repoCard'
 
 describe('<RepoCard />', () => {
   let repo
-  let container
+  let container: HTMLElement
 
   beforeEach(() => {
     repo = {
+      id: 0,
       user: 'OpenEMS',
       repoName: 'openems',
       url: 'https://github.com/OpenEMS/openems',

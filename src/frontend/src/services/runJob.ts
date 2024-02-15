@@ -1,7 +1,9 @@
 import axios from 'axios'
+import { TopicEnum } from '../types'
+
 const baseUrl = '/api/jobs'
 
-const runJob = async (topicValue, token) => {
+const runJob = async (topicValue: TopicEnum, token: string) => {
   const body = { topic: topicValue }
   const config = {
     headers: { Authorization: `Bearer ${token}` }

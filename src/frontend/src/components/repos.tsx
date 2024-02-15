@@ -5,6 +5,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { ButtonSelectedStyled, ButtonStyled } from '../styles/styledComponents'
 import { colors } from '../styles/styledComponents'
+import { RepoOredrType } from '../types'
+import { RepoType } from '../types'
 
 const DisplayReposDiv = styled.div`
   margin: 2rem;
@@ -14,8 +16,8 @@ const DisplayReposDiv = styled.div`
 `
 
 const Repos = () => {
-  const [orderType, setOrderType] = useState(null)
-  const [repos, setRepos] = useState([])
+  const [orderType, setOrderType] = useState<RepoOredrType | null>(null)
+  const [repos, setRepos] = useState<RepoType[]>([])
   const [repoSelected, setRepoSelected] = useState('')
 
   const baseUrl = '/api/repos'
@@ -28,7 +30,7 @@ const Repos = () => {
     setOrderType('stars')
   }
 
-  const handleSelectRepo = event => {
+  const handleSelectRepo = (event: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(event.target.value)
     setRepoSelected(event.target.value)
   }
@@ -89,9 +91,13 @@ const Repos = () => {
         }
       </div>
       <div>
-        {reposDisplayed.map(repo =>
-          <RepoCard key={repo.id} repo={repo} />
-        )}
+        {
+          reposDisplayed ? 
+          reposDisplayed.map(repo =>
+            <RepoCard key={repo.id} repo={repo} />
+          ) :
+          <p>Select a repo</p>
+        }
       </div>
     </DisplayReposDiv>
   )

@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 // import axios from 'axios'
 import { LoginForm } from './components/loginForm'
@@ -7,6 +7,7 @@ import Repos from './components/repos'
 import { UpdateRepos } from './components/updateRepos'
 import { colors } from './styles/styledComponents'
 import styled from 'styled-components'
+import { User } from './types'
 
 const TopNavBarStyled = styled.div`
   background-color: ${colors.primary};
@@ -35,9 +36,9 @@ const TopNavBarLogoutStyled = styled.a`
 `
 
 const App = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<User | null>(null)
 
-  const handleUserChange = (newUser: SetStateAction<null>) => {
+  const handleUserChange = (newUser: User) => {
     setUser(newUser)
   }
 

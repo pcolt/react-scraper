@@ -10,7 +10,13 @@ const TogglableDivStyled = styled.div`
   border-radius: 8px;
 `
 
-const Togglable = (props) => {
+type TogglableProps = {
+  buttonShowLabel: string,
+  buttonHideLabel?: string,
+  children: React.ReactNode
+}
+
+const Togglable = (props : TogglableProps) => {
   const [visible, setVisible] = useState(false)
 
   const hideWhenVisible = { display: visible ? 'none' : '' }

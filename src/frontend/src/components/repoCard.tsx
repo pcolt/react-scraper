@@ -1,6 +1,7 @@
 import githublogo from '../assets/github-mark.svg'
 import styled from 'styled-components'
 import { colors } from '../styles/styledComponents'
+import { RepoType } from '../types'
 
 const RepoCardStyled = styled.div`
   margin: 2rem;
@@ -9,12 +10,7 @@ const RepoCardStyled = styled.div`
   border-radius: 8px;
 `
 
-const githubLogoStyle = {
-  height: '1rem',
-  paddingRight: '0.1rem'
-}
-
-export const RepoCard = ({ repo }) => {
+export const RepoCard = ({ repo }: {repo: RepoType}) => {
 
   return (
     <RepoCardStyled>

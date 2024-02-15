@@ -4,6 +4,7 @@ import { topics } from '../services/helpers'
 import { ButtonStyled } from '../styles/styledComponents'
 import styled from 'styled-components'
 import { colors } from '../styles/styledComponents'
+import { User, TopicEnum } from '../types'
 
 const UpdReposDivStyled = styled.div`
   margin: 2rem;
@@ -14,16 +15,21 @@ const UpdReposDivStyled = styled.div`
 
 // import axios from 'axios'
 
-// const baseUrl = '/api/jobs'
+// const baseUrl = '/api/jobs'\
+
+type UpdateReposProps = {
+  user: User,
+  logOut: () => void
+}
 
 export const UpdateRepos = ({
   user,
   logOut
-}) => {
-  const [messageSent, setMessageSent] = useState(null)
+}: UpdateReposProps) => {
+  const [messageSent, setMessageSent] = useState<TopicEnum | null>(null)
   const [dateMsgSent, setDateMsgSent] = useState('')
 
-  const runCrawlerJob = async (topicValue) => {
+  const runCrawlerJob = async (topicValue: TopicEnum) => {
     console.log('Button pressed:', topicValue)
 
     try {

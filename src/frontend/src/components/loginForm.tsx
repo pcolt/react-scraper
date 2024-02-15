@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { ButtonStyled } from '../styles/styledComponents'
 import { colors } from '../styles/styledComponents'
+import { User } from '../types'
 
 import loginService from '../services/login' // Import the LoginService type from the login module
 
@@ -17,14 +18,16 @@ const FormLoginStyled = styled.form`
 
 export const LoginForm = ({
   changeUser
+}: {
+  changeUser: (user: User) => void
 }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const navigate = useNavigate()
 
-  const handleLogin = async (event) => {
+  const handleLogin = async (event: React.SyntheticEvent) => {
     event.preventDefault()
     console.log('logging in with', username, password)
 
