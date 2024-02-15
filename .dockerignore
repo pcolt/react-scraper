@@ -7,7 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# node_modules
+src/frontend/node_modules
+src/backend/node_modules
 node_modules
+
+# dist
+src/frontend/dist
 dist
 dist-ssr
 *.local
@@ -29,3 +35,6 @@ dist-ssr
 
 # Jest coverage
 coverage
+
+# Typescript built files
+built_backend

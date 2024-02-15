@@ -15,7 +15,10 @@ module.exports = {
 	'ignorePatterns': [
 		'dist', 
 		'.eslintrc.cjs',
-		'node_modules'
+		'node_modules',
+		'cypress.config.js',
+		'built_backend',
+		'tsconfig.json'
 	],
 	'settings': {
 		'react': {

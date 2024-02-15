@@ -5,31 +5,50 @@
       "displayName": "backend",
       "testEnvironment": "node",
       "testMatch": [
-        "<rootDir>/tests/**/*.test.js"
+        "<rootDir>/src/backend/tests/**/*-test.ts"
+      ],
+      "collectCoverageFrom": [
+        "<rootDir>/src/backend/**/*.ts"
       ],
       "coveragePathIgnorePatterns": [
-        "<rootDir>/node_modules/"
-      ]
+        "<rootDir>/node_modules/",
+        "<rootDir>/src/frontend/"
+      ],
+      "transform": {
+        "^.+\\.(ts|tsx)$": "ts-jest"
+      }
     },
     {
       "displayName": "frontend",
       "testEnvironment": "jsdom",
       "testMatch": [
-        "<rootDir>/src/**/*.test.js"
+        "<rootDir>/src/frontend/src/**/*.test.tsx"
+      ],
+      "collectCoverageFrom": [
+        "<rootDir>/src/frontend/src/**/*.tsx"
       ],
       "coveragePathIgnorePatterns": [
-        "<rootDir>/node_modules/"
+        "<rootDir>/node_modules/",
+        "<rootDir>/src/backend/"
       ],
       "moduleNameMapper": {
-        "\\.(css|less|svg)$": "<rootDir>/__mocks__/styleMock.js"
+        "\\.(css|less|svg)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+      },
+      "transform": {
+        "^.+\\.tsx?$": "ts-jest"
       }
     }
   ],
   "collectCoverageFrom": [
-    "**/*.{js,jsx}",
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/tests/**",
-    "!vite.config.js"
+    "!vite.config.js",
+    "!built_backend/**",
+    "!coverage/**",
+    "!.eslintrc.cjs",
+    "!cypress.config.js",
+    "!cypress/**",
+    "!dist/**"
   ]
 }
