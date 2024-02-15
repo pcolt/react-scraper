@@ -39,6 +39,7 @@ coverage
 # Typescript
 built_backend
 *.tsbuildinfo
+**/vite.config.js
 
 # Cypress
 cypress/screenshots
