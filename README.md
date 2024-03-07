@@ -7,12 +7,13 @@
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Full Stack Project - Single-page app scraping data from repositories on GitHub 
 
 A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on GitHub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
    
-The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a database on the cloud. The scraping service can by fired for updates from the main app after login authentication using pub/sub communication.   
+The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a Atlas MongoDB on the cloud. The scraping service can by fired for updates from the main app after login authentication using Redis pub/sub communication.   
 
 Both the applications are deployed to the internet and an on-line version is visible [here](https://react-node-scraper.fly.dev/).   
 
