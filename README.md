@@ -1,6 +1,6 @@
 ## Full Stack Project - Single-page app scraping data from repositories on Git Hub 
 
-A single-page app that shows a list of the most followed repositories about **climatechange** and other topics right now available on Git Hub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
+A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on Git Hub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
    
 The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a database on the cloud. The scraping service can by fired for updates from the main app after login authentication using pub/sub communication.   
 
