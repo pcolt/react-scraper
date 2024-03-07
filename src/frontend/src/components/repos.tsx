@@ -11,7 +11,8 @@ import { RepoType } from '../types'
 const DisplayReposDiv = styled.div`
   margin: 2rem;
   padding: 2rem;
-  background-color: ${colors.secondary};
+  background-color: ${colors.primary};
+  color: ${colors.tertiary};
   border-radius: 8px;
 `
 

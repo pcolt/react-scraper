@@ -12,7 +12,7 @@ import loginService from '../services/login' // Import the LoginService type fro
 const FormLoginStyled = styled.form`
   margin: 2rem;
   padding: 2rem;
-  background-color: ${colors.secondary};
+  background-color: ${colors.primary};
   border-radius: 8px;
 `
 

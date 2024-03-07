@@ -9,7 +9,7 @@ import { User, TopicEnum } from '../types'
 const UpdReposDivStyled = styled.div`
   margin: 2rem;
   padding: 2rem;
-  background-color: ${colors.secondary};
+  background-color: ${colors.primary};
   border-radius: 8px;
 `
 

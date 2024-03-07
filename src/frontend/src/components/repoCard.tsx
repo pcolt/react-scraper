@@ -4,9 +4,10 @@ import { colors } from '../styles/styledComponents'
 import { RepoType } from '../types'
 
 const RepoCardStyled = styled.div`
-  margin: 2rem;
-  padding: 0.5rem;
-  background-color: ${colors.tertiary};
+  margin: 2rem 2rem 2rem 0rem;
+  padding: 2rem;
+  background-color: ${colors.secondary};
+  color: ${colors.tertiary};
   border-radius: 8px;
 `
 

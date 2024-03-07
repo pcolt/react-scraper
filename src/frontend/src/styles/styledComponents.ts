@@ -1,10 +1,10 @@
 import { createGlobalStyle, styled } from 'styled-components'
 
 export const colors = {
-  background: '#85b7ec',
-  primary: '#4A5073',
-  secondary: '#cbd9e8',
-  tertiary: '#f9f9f9'
+  background: 'black', 
+  primary: '#33332d',     // dark gray
+  secondary: 'gray', 
+  tertiary: '#f9f9f9'     // light-gray
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-    color: ${colors.primary};
+    color: ${colors.tertiary};
     background-color: ${colors.background};
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     font-weight: 500;
-    color: ${colors.primary};
+    color: ${colors.tertiary};
   }
   a:hover {
     color: ${colors.secondary};
@@ -45,7 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #f9f9f9;
+    background-color: ${colors.tertiary};
     cursor: pointer;
   }
 
