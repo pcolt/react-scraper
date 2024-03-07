@@ -1,10 +1,10 @@
-## React-Express app showing results from backend project playwright-scraper
+## Full Stack Project - Single-page app scraping data from repositories on Git Hub 
 
-A single page app that shows a list of the most followed repositories about **climatechange** and other topics.  
+A single-page app that shows a list of the most followed repositories about **climatechange** and other topics right now available on Git Hub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
    
-The data is scraped with the Nodejs application https://github.com/pcolt/playwright-scraper.  
+The data is scraped with a separate [application](https://github.com/pcolt/playwright-scraper) and stored in a database on the cloud. The scraping service can by fired to update the date after login from the single-page app.   
 
-A on-line version is visible [here](https://react-node-scraper.fly.dev/).   
+Both the applications are deployed to the internet with [Fly.io](https://fly.io) and an on-line version is visible [here](https://react-node-scraper.fly.dev/).   
 
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >
@@ -138,4 +138,4 @@ Currently, two official plugins are available:
 
 ## References
 
-The project is based on the materials from Helsinki University's Full Stack Open course [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/), [part 4](https://fullstackopen.com/en/part4/), [part 5](https://fullstackopen.com/en/part5/), [part 6](https://fullstackopen.com/en/part6/), [part 7](https://fullstackopen.com/en/part7/).
+The project follows the best practices and examples used in the Helsinki University's Full Stack Open course, especially [part 1](https://fullstackopen.com/en/part1/), [part 2](https://fullstackopen.com/en/part2/), [part 3](https://fullstackopen.com/en/part3/), [part 4](https://fullstackopen.com/en/part4/), [part 5](https://fullstackopen.com/en/part5/), [part 6](https://fullstackopen.com/en/part6/), [part 7](https://fullstackopen.com/en/part7/), [part 9 ](https://fullstackopen.com/en/part9/). It also takes inspiration from examples and guides freely available on the web.
