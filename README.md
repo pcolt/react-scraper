@@ -19,7 +19,7 @@ The data is scraped with a separate [microservice application](https://github.co
 Both the applications are deployed to the internet and an on-line version is visible [here](https://react-node-scraper.fly.dev/).   
 
 ### Work hours
-A list of approximate work hours hused are listed in [workhours.md](/workhours.md)
+A list of approximate work hours used to develop the project are listed in [workhours.md](/workhours.md)
 
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >
