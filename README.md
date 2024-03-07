@@ -15,7 +15,11 @@ A single-page app that shows an updated list of the most followed repositories a
    
 The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a Atlas MongoDB on the cloud. The scraping service can by fired for updates from the main app after login authentication using Redis pub/sub communication.   
 
+### On-line version
 Both the applications are deployed to the internet and an on-line version is visible [here](https://react-node-scraper.fly.dev/).   
+
+### Work hours
+A list of approximate work hours hused are listed in [workhours.md](/workhours.md)
 
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >

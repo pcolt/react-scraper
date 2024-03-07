@@ -92,4 +92,4 @@
 
 # additional work hours for scraping microservice
 
-Check proper file [workhours.md](https://github.com/pcolt/playwright-scraper/blob/main/workinghours.md) in playwright-scraper repository
+Check proper file [workhours.md](https://github.com/pcolt/playwright-scraper/blob/main/workhours.md) in playwright-scraper repository
