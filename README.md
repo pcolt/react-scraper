@@ -11,7 +11,7 @@
 
 ## Full Stack Project - Single-page app scraping data from repositories on GitHub 
 
-A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on GitHub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
+A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on GitHub. This is my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
    
 The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a Atlas MongoDB on the cloud. The scraping service can by fired for updates from the main app after login authentication using Redis pub/sub communication.   
 
@@ -97,6 +97,13 @@ Follow container logs `docker logs --follow [container-id]`
 HTTP requests to the express endpoints are in `requests` folder (Installation of VSCode plugin REST Client is required).
 To change environment variables ([.vscode/settings.json](.vscode/settings.json)) from 'local' to 'production' press:
 `ctrl+alt+e`
+
+### Git
+
+Print list of all commits to a .txt file ([Docs](https://git-scm.com/docs/git-log#Documentation/git-log.txt-emHem))  
+```bash
+git log --reverse --pretty=format:'| %as | 1 | %s |' > log.txt
+```
 
 ## Install
 
