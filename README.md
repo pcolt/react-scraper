@@ -1,6 +1,16 @@
-## Full Stack Project - Single-page app scraping data from repositories on Git Hub 
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 
-A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on Git Hub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
+## Full Stack Project - Single-page app scraping data from repositories on GitHub 
+
+A single-page app that shows an updated list of the most followed repositories about **climatechange** and other topics on GitHub. This is also my final project for the Helsinki University's [Full Stack Open course](https://fullstackopen.com/en/).  
    
 The data is scraped with a separate [microservice application](https://github.com/pcolt/playwright-scraper) and stored in a database on the cloud. The scraping service can by fired for updates from the main app after login authentication using pub/sub communication.   
 
