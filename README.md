@@ -21,14 +21,15 @@ Both the applications are deployed to the internet and an on-line version is vis
 ### Work hours
 A list of approximate work hours used to develop the project are listed in [workhours.md](/workhours.md)
 
+### Screenshots
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >
-  <p>Main view with scraped repositories</p>
   <img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" width="900" />
-  <p>Authentication view</p>
+  <p>Main view with scraped repositories</p>
   <img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" width="900" />
-  <p>Fire scraper microservice view</p>
+  <p>Authentication view</p>
   <img src="/public/react-express-3.png" alt="App screenshot 2" title="App screenshot 1" width="900" />
+  <p>View to run scraping microservices</p>
 </div>
 <!-- ![App screenshot](/public/react-express-2.png "App screenshot") -->
 
