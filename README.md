@@ -24,10 +24,11 @@ A list of approximate work hours used to develop the project are listed in [work
 <!-- ![App screenshot](/public/react-express-1.png "App screenshot") -->
 <div >
   <img src="/public/react-express-1.png" alt="App screenshot 1" title="App screenshot 1" width="900" />
-  <div></div>
+  <div>Main view with scraped repositories</div>
   <img src="/public/react-express-2.png" alt="App screenshot 2" title="App screenshot 1" width="900" />
-  <div></div>
+  <div>Authentication view</div>
   <img src="/public/react-express-3.png" alt="App screenshot 2" title="App screenshot 1" width="900" />
+  <div>Fire scraper microservice view</div>
 </div>
 <!-- ![App screenshot](/public/react-express-2.png "App screenshot") -->
 
